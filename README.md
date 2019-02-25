@@ -1,5 +1,5 @@
 # Placement-Cell-Management-System
-A database management system for a university placement cells using Python 3.6 <br/><br/>
+A database management system for a university placement cells using Python 3.6 and SQLAlchemy <br/><br/>
 
 ## Installing the Requirements:
 ### Ubuntu
