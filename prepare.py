@@ -26,7 +26,7 @@ def create_tables(engine):
     login_credentials = Table(
         'login_credentials', meta,
         Column('username', String, primary_key=True),
-        Column('password', String)
+        Column('password', String, nullable=False)
     )
 
     geolocation = Table(
@@ -91,7 +91,7 @@ def create_tables(engine):
         Column('job_title', String),
         Column('description', String),
         Column('cutoff', Float),
-        Column('deadline', DateTime),
+        Column('deadline', DateTime(timezone=True)),
         Column('dov', Date),
         Column('process_ongoing', Boolean),
         Column('package_placement', Integer),
@@ -111,12 +111,12 @@ def create_tables(engine):
         Column('training_id', String, primary_key=True),
         Column('subject_matter', String),
         Column('date', Date),
-        Column('time', Time),
+        Column('time', Time(timezone=True)),
         Column('company_tin', String, ForeignKey(companies.c.company_tin))
     )
 
     student_applies_for_job = Table(
-        'student_applies_for_training', meta,
+        'student_applies_for_job', meta,
         Column('roll_no', String, primary_key=True),
         Column('job_id', String, primary_key=True),
         Column('is_shortlisted', Boolean),
@@ -129,6 +129,8 @@ def create_tables(engine):
         Column('training_id', String, primary_key=True),
     )
 
+    meta.create_all(engine)
+
 
 if __name__ == '__main__':
     username = 'lruafctxgsjdsb'
@@ -137,4 +139,5 @@ if __name__ == '__main__':
     database = 'dffdu4arjfs5ta'
 
     # engine, connection = create_connection(username, password, host, database)
-    # create_tables(engine)
+    # if engine:
+    #     create_tables(engine)
