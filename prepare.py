@@ -23,20 +23,31 @@ def create_connection(username, password, host, database):
 def create_tables(engine):
     meta = MetaData()
 
+    login_credentials = Table(
+        'login_credentials', meta,
+        Column('username', String, primary_key=True),
+        Column('password', String)
+    )
+
+    geolocation = Table(
+        'geolocation', meta,
+        Column('pincode', String, primary_key=True),
+        Column('city', String),
+        Column('state', String)
+    )
+
     students = Table(
         'students', meta,
         Column('roll_no', String, primary_key=True),
         Column('f_name', String),
-        Column('s_name', String),
+        Column('l_name', String),
         Column('contact_no', String),
         Column('address_line_1', String),
         Column('address_line_2', String),
         Column('address_line_3', String),
-        Column('city', String),
-        Column('state', String),
-        Column('pin', String),
+        Column('pincode', String, ForeignKey(geolocation.c.pincode)),
         Column('gender', String),
-        Column('resume_updated', Boolean),
+        Column('resume_uploaded', Boolean),
         Column('email_id', String),
         Column('gpa_1', Float),
         Column('gpa_2', Float),
@@ -78,9 +89,10 @@ def create_tables(engine):
         'jobs', meta,
         Column('job_id', String, primary_key=True),
         Column('job_title', String),
+        Column('description', String),
         Column('cutoff', Float),
         Column('deadline', DateTime),
-        Column('year', String),
+        Column('dov', Date),
         Column('process_ongoing', Boolean),
         Column('package_placement', Integer),
         Column('stipend_intern', Integer),
@@ -88,10 +100,16 @@ def create_tables(engine):
         Column('company_tin', String, ForeignKey(companies.c.company_tin))
     )
 
+    branches_eligible = Table(
+        'branches_eligible', meta,
+        Column('branch', String, primary_key=True),
+        Column('job_id', String, primary_key=True)
+    )
+
     trainings = Table(
         'trainings', meta,
         Column('training_id', String, primary_key=True),
-        Column('description', String),
+        Column('subject_matter', String),
         Column('date', Date),
         Column('time', Time),
         Column('company_tin', String, ForeignKey(companies.c.company_tin))
@@ -100,7 +118,7 @@ def create_tables(engine):
     student_applies_for_job = Table(
         'student_applies_for_training', meta,
         Column('roll_no', String, primary_key=True),
-        Column('training_id', String, primary_key=True),
+        Column('job_id', String, primary_key=True),
         Column('is_shortlisted', Boolean),
         Column('is_selected', Boolean)
     )
@@ -112,7 +130,7 @@ def create_tables(engine):
     )
 
 
-if __name__ == '__init__':
+if __name__ == '__main__':
     username = 'lruafctxgsjdsb'
     password = '7f6f9c5c0b160cc13f80a8955323e27b2e52647c62b0e0c94c9c023f99e74c1b'
     host = 'ec2-184-73-216-48.compute-1.amazonaws.com'
