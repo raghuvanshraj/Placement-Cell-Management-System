@@ -1,5 +1,4 @@
 # change test database to production
-# complete jobs, offers_for_placement, offers_for_internship tables
 
 from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, Integer, String, Boolean, Float, \
