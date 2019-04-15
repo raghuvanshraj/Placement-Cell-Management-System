@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -579,7 +580,8 @@ class Ui_MainWindow(object):
         self.comboBox_7.setItemText(8, _translate("MainWindow", "Information Technology"))
         self.comboBox_7.setItemText(9, _translate("MainWindow", "Mathematics and Computing"))
         self.comboBox_7.setItemText(10, _translate("MainWindow", "Mechanical Engineering"))
-        self.comboBox_7.setItemText(11, _translate("MainWindow", "Mechanical Engineering with Specialization in Automotive Engineering"))
+        self.comboBox_7.setItemText(11, _translate("MainWindow",
+                                                   "Mechanical Engineering with Specialization in Automotive Engineering"))
         self.comboBox_7.setItemText(12, _translate("MainWindow", "Polymer Science and Chemical Technology"))
         self.comboBox_7.setItemText(13, _translate("MainWindow", "Production and Industrial Engineering"))
         self.comboBox_7.setItemText(14, _translate("MainWindow", "Software Engineering"))
@@ -634,14 +636,15 @@ class Ui_MainWindow(object):
         self.pushButton_4.setText(_translate("MainWindow", "My Profile"))
         self.pushButton_6.setText(_translate("MainWindow", "Sign Out"))
 
+
 import icons_rc
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
