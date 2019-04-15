@@ -1,0 +1,17 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+	<qresource>
+		<file>icons/Account.png</file>
+		<file>icons/Applications.png</file>
+		<file>icons/Job.png</file>
+		<file>icons/Notifications.png</file>
+		<file>icons/Profile.png</file>
+		<file>icons/Dots.png</file>
+		<file>icons/Logout.png</file>
+		<file>icons/Search.png</file>
+		<file>icons/yellowhighlighter.png</file>
+		<file>icons/attachment.png</file>
+		<file>icons/info.png</file>
+		<file>icons/selected.png</file>
+	</qresource>
+</RCC>
