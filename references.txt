@@ -1,0 +1,1 @@
+https://blog.pelicandd.com/article/12/pooling-and-performance-what-benchmarks-and-profiling-may-reveal

@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a4a9406-185c-4780-8660-e6063b0a289d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/csv_files/filter_pincodes.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csv_files/indian_pincodes.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csv_files/pincodes_delhi_haryana.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/references.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/code/about_company.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/about_company.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/code/intern_placement.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/intern_placement.py" afterDir="false" />
@@ -9,6 +13,16 @@
       <change beforePath="$PROJECT_DIR$/frontend/code/login_placement.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/login_placement.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/code/placement_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/placement_cell.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ui/About_Company.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/about_company.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ui/Intern_Placement.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/intern_placement.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ui/Login_intern.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/login_intern.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ui/Login_placement.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/login_placement.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ui/Placement_Cell.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/placement_cell.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ui/Placement_Cell_recruiter.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/placement_cell_recruiter.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/requirements.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/requirements.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/requirements.sh" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/requirements.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tables.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,75 +35,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tables.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+            <state relative-caret-position="-522">
+              <caret line="174" column="23" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
               <folding>
-                <element signature="e#38#157#0" expanded="true" />
+                <element signature="e#38#74#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements/requirements.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="34" selection-start-line="2" selection-end-line="6" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements/requirements.cmd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/code/about_company.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2051" />
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/code/intern_placement.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/code/login_intern.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/code/login_placement.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="417" column="15" lean-forward="true" selection-start-line="417" selection-start-column="15" selection-end-line="417" selection-end-column="15" />
+            <state relative-caret-position="364">
+              <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -119,18 +88,22 @@
         <option value="$PROJECT_DIR$/requirements.cmd" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/create_tables.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/prepare.py" />
         <option value="$PROJECT_DIR$/tables.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/requirements/requirements.sh" />
-        <option value="$PROJECT_DIR$/requirements/requirements.cmd" />
         <option value="$PROJECT_DIR$/frontend/code/about_company.py" />
-        <option value="$PROJECT_DIR$/frontend/code/intern_placement.py" />
         <option value="$PROJECT_DIR$/frontend/code/login_intern.py" />
         <option value="$PROJECT_DIR$/frontend/code/login_placement.py" />
         <option value="$PROJECT_DIR$/frontend/code/placement_cell.py" />
         <option value="$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py" />
+        <option value="$PROJECT_DIR$/test_1.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/references.txt" />
+        <option value="$PROJECT_DIR$/indian_pincodes.csv" />
+        <option value="$PROJECT_DIR$/requirements/requirements.sh" />
+        <option value="$PROJECT_DIR$/requirements/requirements.cmd" />
+        <option value="$PROJECT_DIR$/frontend/code/intern_placement.py" />
+        <option value="$PROJECT_DIR$/db_helper.py" />
       </list>
     </option>
   </component>
@@ -162,7 +135,7 @@
               <item name="Placement-Cell-Management-System" type="b2602c69:ProjectViewProjectNode" />
               <item name="Placement-Cell-Management-System" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -180,7 +153,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/csv_files" />
       <recent name="$PROJECT_DIR$/requirements" />
     </key>
   </component>
@@ -196,8 +173,30 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.placement_cell_recruiter">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.intern_placement">
+    <configuration name="about_company" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Placement-Cell-Management-System" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/frontend/code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend/code/about_company.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="db_helper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Placement-Cell-Management-System" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -210,7 +209,51 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db_helper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="intern_placement" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Placement-Cell-Management-System" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/frontend/code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend/code/intern_placement.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="login_intern" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Placement-Cell-Management-System" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/frontend/code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frontend/code/login_intern.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -241,28 +284,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="prepare" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Placement-Cell-Management-System" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tables.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Placement-Cell-Management-System" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -285,11 +306,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.about_company" />
+      <item itemvalue="Python.intern_placement" />
+      <item itemvalue="Python.login_intern" />
+      <item itemvalue="Python.db_helper" />
+      <item itemvalue="Python.placement_cell_recruiter" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.intern_placement" />
+        <item itemvalue="Python.about_company" />
+        <item itemvalue="Python.db_helper" />
+        <item itemvalue="Python.login_intern" />
         <item itemvalue="Python.placement_cell_recruiter" />
-        <item itemvalue="Python.prepare" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -330,7 +361,14 @@
       <workItem from="1554716206470" duration="243000" />
       <workItem from="1554725546768" duration="5260000" />
       <workItem from="1554901429577" duration="15000" />
-      <workItem from="1555327607507" duration="1535000" />
+      <workItem from="1555327607507" duration="2547000" />
+      <workItem from="1555331501488" duration="843000" />
+      <workItem from="1555675496155" duration="11277000" />
+      <workItem from="1555701632071" duration="41000" />
+      <workItem from="1555701691450" duration="1371000" />
+      <workItem from="1555765439704" duration="9744000" />
+      <workItem from="1555943822940" duration="351000" />
+      <workItem from="1556010540016" duration="1070000" />
     </task>
     <task id="LOCAL-00001" summary="added necessary files">
       <created>1549263601793</created>
@@ -423,11 +461,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555327657759</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="formatted ui files">
+      <created>1555330191125</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1555330191125</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31549000" />
+    <option name="totallyTimeSpent" value="57258000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -441,27 +486,27 @@
   <component name="ToolWindowManager">
     <frame x="54" y="-4" width="1313" height="773" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25257325" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2858274" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.40029985" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298351" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35832083" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32868218" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.31634182" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.31484258" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50039524" side_tool="true" weight="0.32868218" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49960473" weight="0.47988078" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32637855" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49960473" weight="0.4797601" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32533732" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="R Graphics" order="4" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.3293745" />
+      <window_info anchor="right" id="R Graphics" order="4" weight="0.32858273" />
       <window_info anchor="right" id="R Packages" order="5" />
       <window_info anchor="right" id="Database" order="6" />
     </layout>
@@ -478,13 +523,17 @@
     <MESSAGE value="updated create_table.py" />
     <MESSAGE value="updated prepare.py" />
     <MESSAGE value="updated multiple files" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated multiple files" />
+    <MESSAGE value="formatted ui files" />
+    <option name="LAST_COMMIT_MESSAGE" value="formatted ui files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$prepare.coverage" NAME="prepare Coverage Results" MODIFIED="1554729596449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$test.coverage" NAME="test Coverage Results" MODIFIED="1554445758471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$main.coverage" NAME="main Coverage Results" MODIFIED="1554729056400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$placement_cell_recruiter.coverage" NAME="placement_cell_recruiter Coverage Results" MODIFIED="1555329472973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend/code" />
+    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$test.coverage" NAME="test Coverage Results" MODIFIED="1555677400846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$placement_cell_recruiter.coverage" NAME="placement_cell_recruiter Coverage Results" MODIFIED="1555330225836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend/code" />
+    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$main.coverage" NAME="db_helper Coverage Results" MODIFIED="1555776779555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$about_company.coverage" NAME="about_company Coverage Results" MODIFIED="1556010650287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend/code" />
+    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$login_intern.coverage" NAME="login_intern Coverage Results" MODIFIED="1555765743758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend/code" />
+    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$intern_placement.coverage" NAME="intern_placement Coverage Results" MODIFIED="1556010893529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend/code" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -498,66 +547,95 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create_tables.py" />
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/frontend/code/login_placement.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_1.py" />
+    <entry file="file://$PROJECT_DIR$/test.py" />
+    <entry file="file://$PROJECT_DIR$/frontend/code/icons_rc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-255874" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tables.py">
+    <entry file="file://$PROJECT_DIR$/tables.py" />
+    <entry file="file://$PROJECT_DIR$/references.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding>
-            <element signature="e#38#157#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state>
+          <caret column="102" selection-start-column="102" selection-end-column="102" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements/requirements.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="34" selection-start-line="2" selection-end-line="6" selection-end-column="34" />
+        <state relative-caret-position="126">
+          <caret line="7" column="17" selection-start-line="7" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements/requirements.cmd">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        <state relative-caret-position="90">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/code/about_company.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/code/intern_placement.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/code/login_intern.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/code/login_placement.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="417" column="15" lean-forward="true" selection-start-line="417" selection-start-column="15" selection-end-line="417" selection-end-column="15" />
+        <state relative-caret-position="7092">
+          <caret line="394" column="57" selection-start-line="394" selection-start-column="57" selection-end-line="394" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/csv_files/indian_pincodes.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/code/login_intern.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1540">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/csv_files/pincodes_delhi_haryana.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/code/about_company.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2051" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/code/intern_placement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-522">
+          <caret line="174" column="23" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
+          <folding>
+            <element signature="e#38#74#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
