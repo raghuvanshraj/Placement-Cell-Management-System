@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>981</width>
-    <height>557</height>
+    <height>553</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="intern_pushButton">
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -33,7 +33,7 @@
      <string>INTERN</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="placement_pushButton">
     <property name="geometry">
      <rect>
       <x>300</x>

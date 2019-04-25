@@ -17,7 +17,7 @@ class DBHelper(object):
         except Exception as err:
             print("Connection Failed:", err)
 
-        self.meta = MetaData()
+        self.meta = MetaData(bind=self.engine)
         self.login_credentials_student = Table(
             'login_credentials_student', self.meta,
             Column('username', String, primary_key=True),
@@ -130,6 +130,12 @@ class DBHelper(object):
             Column('training_id', String, primary_key=True),
         )
 
+        self.branches = Table(
+            'branches', self.meta,
+            Column('branch', String, primary_key=True),
+            Column('course', String, primary_key=True)
+        )
+
     def create_tables(self):
         self.meta.create_all(self.engine)
 
@@ -189,7 +195,7 @@ class DBHelper(object):
         command = self.students.select(
             whereclause=self.students.c.roll_no == roll_no
         )
-        result = self.connection.execute(command).fetchone()
+        result = self.connection.execute(command).fetchone()[1:]
         columns = [column.key for column in self.students.columns]
 
         return dict(zip(columns, result))
@@ -252,6 +258,34 @@ class DBHelper(object):
         columns = [column.key for column in self.geolocation.columns]
 
         return dict(zip(columns, result_restructured))
+
+    def change_student_password(self, rollno, new_password):
+        command = self.login_credentials_student.update().where(
+            self.login_credentials_student.c.roll_no == rollno
+        ).values(password=new_password)
+        self.connection.execute(command)
+
+    def change_recruiter_password(self, username, new_password):
+        command = self.login_credentials_company.update().where(
+            self.login_credentials_company.c.username == username
+        ).values(password=new_password)
+        self.connection.execute(command)
+
+    def update_student_details(self, student_details):
+        command = self.students.update().where(self.students.c.roll_no == student_details['rollno']).values(
+            student_details
+        )
+        self.connection.execute(command)
+
+    def update_company_details(self, company_details):
+        command = self.companies.update().where(self.companies.c.username == company_details['username']).values(
+            company_details
+        )
+        self.connection.execute(command)
+
+    def add_job(self, job_details):
+        command = self.jobs.insert().values(job_details)
+        self.connection.execute(command)
 
 
 if __name__ == '__main__':
