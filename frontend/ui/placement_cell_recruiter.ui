@@ -142,7 +142,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -351,7 +351,7 @@
        <widget class="QCheckBox" name="checkBox">
         <property name="geometry">
          <rect>
-          <x>140</x>
+          <x>160</x>
           <y>50</y>
           <width>81</width>
           <height>20</height>
@@ -364,7 +364,7 @@
        <widget class="QCheckBox" name="checkBox_2">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>280</x>
           <y>50</y>
           <width>81</width>
           <height>20</height>
@@ -372,19 +372,6 @@
         </property>
         <property name="text">
          <string>M. Tech.</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_3">
-        <property name="geometry">
-         <rect>
-          <x>340</x>
-          <y>50</y>
-          <width>81</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>MBA</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_32">
@@ -419,9 +406,9 @@
        <widget class="QListView" name="listView">
         <property name="geometry">
          <rect>
-          <x>140</x>
+          <x>210</x>
           <y>80</y>
-          <width>261</width>
+          <width>191</width>
           <height>91</height>
          </rect>
         </property>
@@ -536,6 +523,39 @@
           <height>22</height>
          </rect>
         </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>90</y>
+          <width>161</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="currentText">
+         <string>Select B.Tech. Course</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Select B.Tech. Course</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="comboBox_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>130</y>
+          <width>161</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Select M.Tech. Course</string>
+         </property>
+        </item>
        </widget>
       </widget>
       <widget class="QLineEdit" name="lineEdit_31">
