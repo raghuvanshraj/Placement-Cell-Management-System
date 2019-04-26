@@ -60,6 +60,12 @@ class Login(QMainWindow, login_ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.forgotPasswordGroupBox.hide()
+        self.forgotPasswordCommandLinkButton.clicked.connect(self.forgotPasswordListener)
+
+    def forgotPasswordListener(self):
+        self.forgotPasswordGroupBox.show()
+        self.loginDetailsGroupBox.hide()
 
 
 class PlacementCellRecruiter(QMainWindow, placement_cell_recruiter_ui):

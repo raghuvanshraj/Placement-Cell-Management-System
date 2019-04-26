@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox">
+   <widget class="QGroupBox" name="loginDetailsGroupBox">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -107,7 +107,7 @@
         <string>LOG IN</string>
        </property>
       </widget>
-      <widget class="QCommandLinkButton" name="commandLinkButton">
+      <widget class="QCommandLinkButton" name="forgotPasswordCommandLinkButton">
        <property name="geometry">
         <rect>
          <x>510</x>
@@ -192,7 +192,7 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QGroupBox" name="forgotPasswordGroupBox">
     <property name="geometry">
      <rect>
       <x>140</x>
