@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="intern_pushButton">
+   <widget class="QPushButton" name="internPushButton">
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -33,7 +33,7 @@
      <string>INTERN</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="placement_pushButton">
+   <widget class="QPushButton" name="placementPushButton">
     <property name="geometry">
      <rect>
       <x>300</x>
