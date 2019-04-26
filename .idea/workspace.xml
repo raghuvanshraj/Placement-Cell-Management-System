@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a4a9406-185c-4780-8660-e6063b0a289d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/csv_files/filter_pincodes.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/csv_files/indian_pincodes.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/csv_files/pincodes_delhi_haryana.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/references.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Placement-Cell-Management-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Placement-Cell-Management-System.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/code/about_company.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/about_company.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/code/intern_placement.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/intern_placement.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/code/login_intern.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/login_intern.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/code/login_placement.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/login_placement.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/code/placement_cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/placement_cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ui/About_Company.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/about_company.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ui/Intern_Placement.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/intern_placement.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ui/Login_intern.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/login_intern.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ui/Login_placement.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/login_placement.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ui/Placement_Cell.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/placement_cell.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ui/Placement_Cell_recruiter.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/placement_cell_recruiter.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/requirements.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/requirements.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/requirements.sh" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/requirements.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tables.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,27 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-522">
-              <caret line="174" column="23" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
-              <folding>
-                <element signature="e#38#74#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/code/about_company.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2051" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/code/intern_placement.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
+            <state relative-caret-position="-3468">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -108,9 +71,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1303" />
+    <option name="x" value="62" />
+    <option name="y" value="-13" />
+    <option name="width" value="1305" />
     <option name="height" value="780" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -150,7 +113,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -484,9 +447,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-4" width="1313" height="773" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2858274" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17173052" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -500,7 +464,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.31484258" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50039524" side_tool="true" weight="0.32868218" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49960473" weight="0.4797601" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49960473" weight="0.47949082" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32533732" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -547,24 +511,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create_tables.py" />
-    <entry file="file://$PROJECT_DIR$/frontend/code/login_placement.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/code/login_placement.py" />
     <entry file="file://$PROJECT_DIR$/test_1.py" />
     <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="file://$PROJECT_DIR$/frontend/code/icons_rc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255874" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/code/icons_rc.py" />
     <entry file="file://$PROJECT_DIR$/tables.py" />
-    <entry file="file://$PROJECT_DIR$/references.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="102" selection-start-column="102" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/references.txt" />
     <entry file="file://$PROJECT_DIR$/requirements/requirements.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -579,63 +531,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py">
+    <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell.py" />
+    <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py" />
+    <entry file="file://$PROJECT_DIR$/csv_files/indian_pincodes.csv" />
+    <entry file="file://$PROJECT_DIR$/frontend/code/login_intern.py" />
+    <entry file="file://$PROJECT_DIR$/csv_files/pincodes_delhi_haryana.csv" />
+    <entry file="file://$PROJECT_DIR$/frontend/code/about_company.py" />
+    <entry file="file://$PROJECT_DIR$/frontend/code/intern_placement.py" />
+    <entry file="file://$PROJECT_DIR$/icons_rc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7092">
-          <caret line="394" column="57" selection-start-line="394" selection-start-column="57" selection-end-line="394" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/csv_files/indian_pincodes.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/code/login_intern.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1540">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/csv_files/pincodes_delhi_haryana.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/code/about_company.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2051" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/code/intern_placement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
-        </state>
+        <state relative-caret-position="-2244" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-522">
-          <caret line="174" column="23" selection-start-line="174" selection-start-column="23" selection-end-line="174" selection-end-column="23" />
-          <folding>
-            <element signature="e#38#74#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-3468">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
         </state>
       </provider>
     </entry>
