@@ -287,6 +287,35 @@ class DBHelper(object):
         command = self.jobs.insert().values(job_details)
         self.connection.execute(command)
 
+    def populate_branch_course_table(self, filename):
+        import pandas as pd
+        import numpy as np
+        import os
+        path = os.path.join('csv_files', filename)
+        branch_course = pd.read_csv(path)
+        branch_course_np = np.array(branch_course)
+
+        unique_branch_course = []
+
+        for row in branch_course_np:
+            if row[0] in unique_branch_course:
+                continue
+
+            unique_branch_course.append(row[0])
+            command = self.branches.insert().values(branch=row[0], course=row[1])
+            self.connection.execute(command)
+
+    def fetch_unique_branches_with_course(self, course):
+        command = self.branches.select(
+            whereclause=self.branches.c.course == course
+        )
+
+        result = self.connection.execute(command).fetchall()
+        result_restructured = list(zip(*result))[1:]
+        columns = [column.key for column in self.branches.columns]
+
+        return dict(zip(columns, result_restructured))
+
 
 if __name__ == '__main__':
     username = 'lruafctxgsjdsb'
