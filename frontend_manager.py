@@ -12,11 +12,15 @@ password = '7f6f9c5c0b160cc13f80a8955323e27b2e52647c62b0e0c94c9c023f99e74c1b'
 host = 'ec2-184-73-216-48.compute-1.amazonaws.com'
 database = 'dffdu4arjfs5ta'
 
-about_company_ui, _ = loadUiType(os.path.join('frontend', 'ui', 'about_company.ui'))
-intern_placement_ui, _ = loadUiType(os.path.join('frontend', 'ui', 'intern_placement.ui'))
-login_ui, _ = loadUiType(os.path.join('frontend', 'ui', 'login.ui'))
-placement_cell_student_ui, _ = loadUiType(os.path.join('frontend', 'ui', 'placement_cell_student.ui'))
-placement_cell_recruiter_ui, _ = loadUiType(os.path.join('frontend', 'ui', 'placement_cell_recruiter.ui'))
+ui_folder = os.path.join('frontend', 'ui')
+
+about_company_ui, _ = loadUiType(os.path.join(ui_folder, 'about_company.ui'))
+intern_placement_ui, _ = loadUiType(os.path.join(ui_folder, 'intern_placement.ui'))
+login_ui, _ = loadUiType(os.path.join(ui_folder, 'login.ui'))
+placement_cell_student_ui, _ = loadUiType(os.path.join(ui_folder, 'placement_cell_student.ui'))
+placement_cell_recruiter_ui, _ = loadUiType(os.path.join(ui_folder, 'placement_cell_recruiter.ui'))
+
+is_intern = False
 
 
 class Student(object):
@@ -40,6 +44,8 @@ class InternPlacement(QMainWindow, intern_placement_ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.internPushButton.clicked.connect(lambda: stacked_window.setCurrentIndex(2))
+        self.placementPushButton.clicked.connect(lambda: stacked_window.setCurrentIndex(2))
 
 
 class AboutCompany(QMainWindow, about_company_ui):
@@ -72,7 +78,21 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = InternPlacement()
-    window.show()
-    db = DBHelper(username, password, host, database, debug_mode=True)
-    app.exec_()
+    stacked_window = QStackedWidget()
+
+    intern_placement_window = InternPlacement()
+    about_company_window = AboutCompany()
+    login_window = Login()
+    placement_cell_recruiter_window = PlacementCellRecruiter()
+    placement_cell_student_window = PlacementCellStudent()
+
+    stacked_window.addWidget(intern_placement_window)
+    stacked_window.addWidget(about_company_window)
+    stacked_window.addWidget(login_window)
+    stacked_window.addWidget(placement_cell_recruiter_window)
+    stacked_window.addWidget(placement_cell_student_window)
+
+    stacked_window.resize(intern_placement_window.size())
+    stacked_window.show()
+
+    sys.exit(app.exec_())
