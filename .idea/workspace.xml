@@ -283,12 +283,12 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.test" />
       <item itemvalue="Python.about_company" />
       <item itemvalue="Python.db_helper" />
       <item itemvalue="Python.frontend_manager" />
       <item itemvalue="Python.intern_placement" />
       <item itemvalue="Python.login_intern" />
-      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
