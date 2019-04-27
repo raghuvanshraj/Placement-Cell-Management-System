@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, Integer, String, Boolean, Float, \
     Date, Time, DateTime, MetaData, ForeignKey
 from sqlalchemy.sql.expression import select
-
+from sqlalchemy import and_, or_
 
 class DBHelper(object):
 
