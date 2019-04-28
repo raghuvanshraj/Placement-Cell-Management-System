@@ -22,22 +22,41 @@ placement_cell_student_ui, _ = loadUiType(os.path.join(ui_folder, 'placement_cel
 placement_cell_recruiter_ui, _ = loadUiType(os.path.join(ui_folder, 'placement_cell_recruiter.ui'))
 
 is_intern = False
+is_student = True
 
 
 class Student(object):
 
-    def __init__(self, student_username, student_password):
-        self.username = student_username
-        self.password = student_password
+    def __init__(self):
+        self.username = None
+        self.password = None
+        self.details = None
+
+    def set_identifiers(self, username, password):
+        self.username = username
+        self.password = password
+
+    def fetch_details(self):
         self.details = db.fetch_student_details(self.username)
 
 
 class Recruiter(object):
 
-    def __init__(self, company_username, company_password):
-        self.username = company_username
-        self.password = company_password
+    def __init__(self):
+        self.username = None
+        self.password = None
+        self.details = None
+
+    def set_identifiers(self, username, password):
+        self.username = username
+        self.password = password
+
+    def fetch_details(self):
         self.details = db.fetch_company_details(self.username)
+
+
+student = Student()
+recruiter = Recruiter()
 
 
 class InternPlacement(QMainWindow, intern_placement_ui):
@@ -128,11 +147,14 @@ class Login(QMainWindow, login_ui):
         #         self.studentUsernameLineEdit.setStyleSheet("border: 1px solid red;")
         #     elif login_state == DBHelper.INVALID_PASSWORD:
         #         self.studentPasswordLineEdit.setStyleSheet("border: 1px solid red;")
+        # global is_student
+        # is_student = True
+        # student.set_identifiers(username, password)
         stacked_window.setCurrentIndex(4)
 
     def loginRecruiter(self):
-        # username = self.studentUsernameLineEdit.text()
-        # password = self.studentPasswordLineEdit.text()
+        # username = self.recruiterUsernameLineEdit.text()
+        # password = self.recruiterPasswordLineEdit.text()
         # login_state = db.login_company(username, password)
         # if login_state == DBHelper.LOGIN_SUCCESSFUL:
         #     stacked_window.setCurrentIndex(4)
@@ -141,6 +163,9 @@ class Login(QMainWindow, login_ui):
         #         self.recruiterUsernameLineEdit.setStyleSheet("border: 1px solid red;")
         #     elif login_state == DBHelper.INVALID_PASSWORD:
         #         self.recruiterPasswordLineEdit.setStyleSheet("border: 1px solid red;")
+        # global is_student
+        # is_student = False
+        # recruiter.set_identifiers(username, password)
         stacked_window.setCurrentIndex(3)
 
 
@@ -158,6 +183,38 @@ class PlacementCellRecruiter(QMainWindow, placement_cell_recruiter_ui):
         self.applicationsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.jobsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.selectionsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
+    def populateCompanyInfoTab(self):
+        company_details = db.fetch_company_details(recruiter.username)
+        pcs = db.fetch_pc_responsible_for_company(recruiter.username)
+        self.nameLineEdit.setText(company_details['name'])
+        self.aboutCompanyTextEdit.setText(company_details['about_company'])
+
+        pcs_string = ''
+        for pc in pcs:
+            pcs_string = pcs_string + ', ' + pc
+        self.pcLineEdit.setText(pcs_string)
+        self.noteTextEdit.setText(company_details['note'])
+
+    def populateApplicationsTable(self):
+        applications = db.fetch_applications_company(recruiter.username)
+        for row, application in enumerate(applications):
+            for col, item in enumerate(application):
+                self.applicationsTableWidget.setItem(
+                    row, col, QTableWidgetItem(str(item))
+                )
+
+            self.applicationsTableWidget.insertRow(0)
+
+    def populateFinalSelectionsTable(self):
+        selections = db.fetch_selections_company(recruiter.username)
+        for row, selection in enumerate(selections):
+            for col, item in enumerate(selection):
+                self.selectionsTableWidget.setItem(
+                    row, col, QTableWidgetItem(str(item))
+                )
+
+            self.selectionsTableWidget.insertRow(0)
 
     def switchToCompanyInfoTab(self):
         self.mainTabWidget.setCurrentIndex(0)
@@ -188,11 +245,114 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
         self.signOutPushButton.clicked.connect(self.signOut)
         self.jobOpeningsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.applicationsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.oldPasswordLineEdit.textChanged.connect(lambda: self.oldPasswordLineEdit.setStyleSheet(""))
+        self.confirmNewPasswordLineEdit.textChanged.connect(lambda: self.confirmNewPasswordLineEdit.setStyleSheet(""))
 
     def populateJobOpeningsTable(self):
-        # jobs = db.get_job_openings()
-        # for row, job in enumerate(jobs):
-        #     self.jobOpeningsTableWidget.
+        jobs = db.fetch_jobs_student()
+        for row, job in enumerate(jobs):
+            for col, item in enumerate(job):
+                self.jobOpeningsTableWidget.setItem(
+                    row, col, QTableWidgetItem(str(item))
+                )
+
+            self.jobOpeningsTableWidget.insertRow(0)
+
+    def populateApplicationsTable(self):
+        applications = db.fetch_applications_student()
+        for row, application in enumerate(applications):
+            for col, item in enumerate(application):
+                self.applicationsTableWidget.setItem(
+                    row, col, QTableWidgetItem(str(item))
+                )
+
+            self.applicationsTableWidget.insertRow(0)
+
+    def populateProfileTab(self):
+        student_details = db.fetch_student_details(student.username)
+        self.firstNameLineEdit.setText(student_details['fname'])
+        self.lastNameLineEdit.setText(student_details['lname'])
+        self.emailLineEdit.setText(student_details['email_id'])
+        self.phoneLineEdit.setText(student_details['contact_no'])
+        # dob = student_details['dob']
+        self.dobDateEdit.setDate(QDate(student_details['dob']))
+
+        genderComboBoxIndex = self.genderComboBox.find(student_details['gender'], Qt.MatchFixedString)
+        self.genderComboBox.setCurrentIndex(genderComboBoxIndex)
+
+        categoryComboBoxIndex = self.categoryComboBox.find(student_details['category'], Qt.MatchFixedString)
+        self.categoryComboBox.setCurrentIndex(categoryComboBoxIndex)
+
+        self.addressLine1TextEdit.setText(student_details['address_line_1'])
+        self.addressLine2TextEdit.setText(student_details['address_line_2'])
+        self.cityLineEdit.setText(student_details['city'])
+
+        stateComboBoxIndex = self.stateComboBox.find(student_details['state'], Qt.MatchFixedString)
+        self.stateComboBox.setCurrentIndex(stateComboBoxIndex)
+
+        self.pinLineEdit.setText(student_details['pincode'])
+        self.resumeLineEdit.setText(student_details['resume_link'])
+        self.marks10LineEdit.setText(student_details['marks_10'])
+        self.marks12LineEdit.setText(student_details['marks_12'])
+        self.gradYearLineEdit.setText(student_details['grad_year'])
+
+        courseComboBoxIndex = self.courseComboBox.find(student_details['course'], Qt.MatchFixedString)
+        self.courseComboBox.setCurrentIndex(courseComboBoxIndex)
+
+        branchComboBoxIndex = self.branchComboBox.find(student_details['branch'], Qt.MatchFixedString)
+        self.branchComboBox.setCurrentIndex(branchComboBoxIndex)
+
+        self.sem1LineEdit.setText(student_details['gpa_1'])
+        self.sem2LineEdit.setText(student_details['gpa_2'])
+        self.sem3LineEdit.setText(student_details['gpa_3'])
+        self.sem4LineEdit.setText(student_details['gpa_4'])
+        self.sem5LineEdit.setText(student_details['gpa_5'])
+        self.sem6LineEdit.setText(student_details['gpa_6'])
+        self.sem7LineEdit.setText(student_details['gpa_7'])
+        self.backlogsLineEdit.setText(student_details['no_of_backlogs'])
+
+    def updateProfileInfo(self):
+        self.updateInfoPushButton.setEnabled(False)
+        student_info = dict()
+        student_info['roll_no'] = student.username
+        student_info['fname'] = self.firstNameLineEdit.text()
+        student_info['lname'] = self.lastNameLineEdit.text()
+        student_info['contact_no'] = self.phoneLineEdit.text()
+        student_info['address_line_1'] = self.addressLine1LineEdit.text()
+        student_info['address_line_2'] = self.addressLine2LineEdit.text()
+        student_info['address_line_3'] = self.addressLine3LineEdit.text()
+        student_info['pincode'] = self.pinLineEdit.text()
+        student_info['gender'] = self.genderComboBox.currentText()
+        student_info['resume_link'] = self.resumeLineEdit.text()
+        student_info['email_id'] = self.emailLineEdit.text()
+        student_info['gpa_1'] = float(self.sem1LineEdit.text())
+        student_info['gpa_2'] = float(self.sem2LineEdit.text())
+        student_info['gpa_3'] = float(self.sem3LineEdit.text())
+        student_info['gpa_4'] = float(self.sem4LineEdit.text())
+        student_info['gpa_5'] = float(self.sem5LineEdit.text())
+        student_info['gpa_6'] = float(self.sem6LineEdit.text())
+        student_info['gpa_7'] = float(self.sem7LineEdit.text())
+        student_info['branch'] = self.branchComboBox.currentText()
+        student_info['category'] = self.categoryComboBox.currentText()
+        student_info['grad_year'] = self.gradYearLineEdit.text()
+        student_info['dob'] = self.dobDateEdit.date()
+        student_info['no_of_backlogs'] = int(self.backlogsLineEdit.text())
+        student_info['marks_10'] = float(self.marks10LineEdit.text())
+        student_info['marks_12'] = float(self.marks12LineEdit.text())
+
+        db.update_student_details(student_info)
+
+        self.updateInfoPushButton.setEnabled(True)
+
+    def updatePassword(self):
+        self.updatePasswordPushButton.setEnabled(False)
+        if self.oldPasswordLineEdit.text() == student.password:
+            if self.newPasswordLineEdit.text() == self.confirmNewPasswordLineEdit.text():
+                db.change_student_password(student.username, student.password)
+            else:
+                self.confirmNewPasswordLineEdit.setStyleSheet("border: 1px solid red;")
+        else:
+            self.oldPasswordLineEdit.setStyleSheet("border: 1px solid red;")
 
     def switchToJobOpeningsTab(self):
         self.mainTabWidget.setCurrentIndex(0)
@@ -235,7 +395,7 @@ if __name__ == '__main__':
 
     # sleep(3)
 
-    # db = DBHelper(username, password, host, database, debug_mode=True)
+    db = DBHelper(username, password, host, database, debug_mode=True)
 
     intern_placement_window.afterDBConnection()
 

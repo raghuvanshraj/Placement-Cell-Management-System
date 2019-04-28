@@ -1,11 +1,11 @@
 JOB_ID,JOB_TITLE,DESCRIPTION,CUTOFF,DEADLINE,DOV,PROCESS_ONGOING,PACKAGE_PLACEMENT,STIPEND_INTERN,DURATION_INTERN,COMPANY_TIN
-J1,software development engineer,description,8.5,8/1/2018,8/4/2018,TRUE,2000000,,,google
-J2,software development engineer,description,8,8/2/2018,8/5/2018,TRUE,2000000,,,amazon
-J3,analyst,description,7,8/1/2018,8/8/2018,TRUE,2000000,,,deloitte
-J4,analyst,description,7,8/19/2018,8/25/2018,TRUE,2000000,,,pwc
-J5,software development engineer,description,8,8/1/2018,8/9/2018,TRUE,2000000,,,microsoft
-J6,software development engineer,description,7.8,8/14/2018,8/16/2018,TRUE,2000000,50000,2,uber
-J7,software development engineer,description,8,8/1/2018,8/10/2018,TRUE,2000000,50000,2,visa
-J8,mechanical engineer,description,8,8/1/2018,8/6/2018,TRUE,2000000,50000,2,hero
-J9,software development engineer,description,7.5,8/23/2018,8/27/2018,TRUE,2000000,50000,2,samsung
-J10,mechanical engineer,description,8,8/1/2018,8/11/2018,TRUE,2000000,50000,2,bajaj
+J1,software development engineer,description,8.5,8/1/2018,8/4/2018,TRUE,200000,,,google
+J2,software development engineer,description,8,8/2/2018,8/5/2018,TRUE,200000,,,amazon
+J3,analyst,description,7,8/1/2018,8/8/2018,TRUE,200000,,,deloitte
+J4,analyst,description,7,8/19/2018,8/25/2018,TRUE,200000,,,pwc
+J5,software development engineer,description,8,8/1/2018,8/9/2018,TRUE,200000,,,microsoft
+J6,software development engineer,description,7.8,8/14/2018,8/16/2018,TRUE,200000,50000,2,uber
+J7,software development engineer,description,8,8/1/2018,8/10/2018,TRUE,200000,50000,2,visa
+J8,mechanical engineer,description,8,8/1/2018,8/6/2018,TRUE,200000,50000,2,hero
+J9,software development engineer,description,7.5,8/23/2018,8/27/2018,TRUE,200000,50000,2,samsung
+J10,mechanical engineer,description,8,8/1/2018,8/11/2018,TRUE,200000,50000,2,bajaj

@@ -109,9 +109,9 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>80</y>
+        <y>20</y>
         <width>761</width>
-        <height>531</height>
+        <height>591</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -146,36 +146,6 @@
        </property>
       </column>
      </widget>
-     <widget class="QLineEdit" name="searchJobsLineEdit">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>30</y>
-        <width>731</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="placeholderText">
-       <string>Search</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="searchPushButton">
-      <property name="geometry">
-       <rect>
-        <x>680</x>
-        <y>30</y>
-        <width>81</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Search</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../icons.qrc">
-        <normaloff>:/icons/Search.png</normaloff>:/icons/Search.png</iconset>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -184,10 +154,10 @@
      <widget class="QTableWidget" name="applicationsTableWidget">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>90</y>
-        <width>741</width>
-        <height>521</height>
+        <x>20</x>
+        <y>20</y>
+        <width>761</width>
+        <height>591</height>
        </rect>
       </property>
       <property name="autoFillBackground">
@@ -214,58 +184,40 @@
        </property>
       </column>
      </widget>
-     <widget class="QLabel" name="label_33">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>30</y>
-        <width>181</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>My Applications</string>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
       <string>Page</string>
      </attribute>
-     <widget class="QTabWidget" name="tabWidget_2">
+     <widget class="QTabWidget" name="profileTabWidget">
       <property name="geometry">
        <rect>
         <x>-10</x>
         <y>0</y>
         <width>811</width>
-        <height>641</height>
+        <height>571</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
         <string> Personal</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox">
+       <widget class="QGroupBox" name="personalDetailsGroupBox">
         <property name="geometry">
          <rect>
           <x>20</x>
           <y>10</y>
           <width>751</width>
-          <height>571</height>
+          <height>501</height>
          </rect>
         </property>
         <property name="title">
          <string>My Profile</string>
         </property>
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="firstNameLineEdit">
          <property name="geometry">
           <rect>
            <x>110</x>
@@ -301,7 +253,7 @@
           <string>Last Name</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_2">
+        <widget class="QLineEdit" name="lastNameLineEdit">
          <property name="geometry">
           <rect>
            <x>110</x>
@@ -324,7 +276,7 @@
           <string>Email Address</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_3">
+        <widget class="QLineEdit" name="emailLineEdit">
          <property name="geometry">
           <rect>
            <x>110</x>
@@ -334,7 +286,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_7">
+        <widget class="QLineEdit" name="phoneLineEdit">
          <property name="geometry">
           <rect>
            <x>110</x>
@@ -422,7 +374,7 @@
           <string>Gender</string>
          </property>
         </widget>
-        <widget class="QTextEdit" name="textEdit">
+        <widget class="QTextEdit" name="addressLine1TextEdit">
          <property name="geometry">
           <rect>
            <x>20</x>
@@ -432,7 +384,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QTextEdit" name="textEdit_2">
+        <widget class="QTextEdit" name="addressLine2TextEdit">
          <property name="geometry">
           <rect>
            <x>20</x>
@@ -442,7 +394,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QDateEdit" name="dateEdit">
+        <widget class="QDateEdit" name="dobDateEdit">
          <property name="geometry">
           <rect>
            <x>110</x>
@@ -452,7 +404,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="genderComboBox">
          <property name="geometry">
           <rect>
            <x>350</x>
@@ -477,7 +429,7 @@
           </property>
          </item>
         </widget>
-        <widget class="QComboBox" name="comboBox_2">
+        <widget class="QComboBox" name="categoryComboBox">
          <property name="geometry">
           <rect>
            <x>590</x>
@@ -522,19 +474,6 @@
           </property>
          </item>
         </widget>
-        <widget class="QPushButton" name="pushButton_7">
-         <property name="geometry">
-          <rect>
-           <x>640</x>
-           <y>510</y>
-           <width>93</width>
-           <height>28</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Update</string>
-         </property>
-        </widget>
         <widget class="QLabel" name="label_19">
          <property name="geometry">
           <rect>
@@ -548,7 +487,7 @@
           <string>City</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_9">
+        <widget class="QLineEdit" name="cityLineEdit">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -571,7 +510,7 @@
           <string>State</string>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_5">
+        <widget class="QComboBox" name="stateComboBox">
          <property name="geometry">
           <rect>
            <x>250</x>
@@ -779,7 +718,7 @@
           <string>Pin</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_10">
+        <widget class="QLineEdit" name="pinLineEdit">
          <property name="geometry">
           <rect>
            <x>560</x>
@@ -795,7 +734,7 @@
        <attribute name="title">
         <string>Academic</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox_2">
+       <widget class="QGroupBox" name="academicDetailsGroupBox">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -807,7 +746,7 @@
         <property name="title">
          <string>My Profile</string>
         </property>
-        <widget class="QLineEdit" name="lineEdit_4">
+        <widget class="QLineEdit" name="resumeLineEdit">
          <property name="geometry">
           <rect>
            <x>110</x>
@@ -846,7 +785,7 @@
           <string>X Aggregate</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_5">
+        <widget class="QLineEdit" name="marks10LineEdit">
          <property name="geometry">
           <rect>
            <x>110</x>
@@ -869,20 +808,7 @@
           <string>XII Aggregate</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton_8">
-         <property name="geometry">
-          <rect>
-           <x>640</x>
-           <y>460</y>
-           <width>93</width>
-           <height>28</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Update</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_6">
+        <widget class="QLineEdit" name="marks12LineEdit">
          <property name="geometry">
           <rect>
            <x>350</x>
@@ -917,7 +843,7 @@
            <string>Semester 1</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_8">
+         <widget class="QLineEdit" name="sem1LineEdit">
           <property name="geometry">
            <rect>
             <x>100</x>
@@ -1005,7 +931,7 @@
            <string>Semester 6</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_11">
+         <widget class="QLineEdit" name="sem7LineEdit">
           <property name="geometry">
            <rect>
             <x>100</x>
@@ -1015,7 +941,7 @@
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_12">
+         <widget class="QLineEdit" name="sem6LineEdit">
           <property name="geometry">
            <rect>
             <x>570</x>
@@ -1025,7 +951,7 @@
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_13">
+         <widget class="QLineEdit" name="sem5LineEdit">
           <property name="geometry">
            <rect>
             <x>340</x>
@@ -1035,7 +961,7 @@
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_14">
+         <widget class="QLineEdit" name="sem4LineEdit">
           <property name="geometry">
            <rect>
             <x>100</x>
@@ -1045,7 +971,7 @@
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_15">
+         <widget class="QLineEdit" name="sem3LineEdit">
           <property name="geometry">
            <rect>
             <x>570</x>
@@ -1055,7 +981,7 @@
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_16">
+         <widget class="QLineEdit" name="sem2LineEdit">
           <property name="geometry">
            <rect>
             <x>340</x>
@@ -1078,16 +1004,6 @@
            <string>Number of Backlogs</string>
           </property>
          </widget>
-         <widget class="QSpinBox" name="spinBox">
-          <property name="geometry">
-           <rect>
-            <x>570</x>
-            <y>210</y>
-            <width>91</width>
-            <height>22</height>
-           </rect>
-          </property>
-         </widget>
          <widget class="QLabel" name="label_13">
           <property name="geometry">
            <rect>
@@ -1101,7 +1017,7 @@
            <string>Course</string>
           </property>
          </widget>
-         <widget class="QComboBox" name="comboBox_6">
+         <widget class="QComboBox" name="courseComboBox">
           <property name="geometry">
            <rect>
             <x>100</x>
@@ -1112,12 +1028,12 @@
           </property>
           <item>
            <property name="text">
-            <string>B. Tech.</string>
+            <string>B.Tech.</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>M. Tech.</string>
+            <string>M.Tech.</string>
            </property>
           </item>
           <item>
@@ -1139,7 +1055,7 @@
            <string>Branch</string>
           </property>
          </widget>
-         <widget class="QComboBox" name="comboBox_7">
+         <widget class="QComboBox" name="branchComboBox">
           <property name="geometry">
            <rect>
             <x>360</x>
@@ -1314,7 +1230,7 @@
            </property>
           </item>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_22">
+         <widget class="QLineEdit" name="sem8LineEdit">
           <property name="geometry">
            <rect>
             <x>340</x>
@@ -1337,6 +1253,16 @@
            <string>Semester 8</string>
           </property>
          </widget>
+         <widget class="QLineEdit" name="backlogsLineEdit">
+          <property name="geometry">
+           <rect>
+            <x>570</x>
+            <y>210</y>
+            <width>91</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
         </widget>
         <widget class="QLabel" name="label_26">
          <property name="geometry">
@@ -1351,7 +1277,7 @@
           <string>Year of Graduation</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_17">
+        <widget class="QLineEdit" name="gradYearLineEdit">
          <property name="geometry">
           <rect>
            <x>620</x>
@@ -1362,17 +1288,29 @@
          </property>
         </widget>
         <zorder>groupBox_3</zorder>
-        <zorder>lineEdit_4</zorder>
+        <zorder>resumeLineEdit</zorder>
         <zorder>label_7</zorder>
         <zorder>label_8</zorder>
-        <zorder>lineEdit_5</zorder>
+        <zorder>marks10LineEdit</zorder>
         <zorder>label_12</zorder>
-        <zorder>pushButton_8</zorder>
-        <zorder>lineEdit_6</zorder>
+        <zorder>marks12LineEdit</zorder>
         <zorder>label_26</zorder>
-        <zorder>lineEdit_17</zorder>
+        <zorder>gradYearLineEdit</zorder>
        </widget>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="updateInfoPushButton">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>590</y>
+        <width>80</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Update</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_5">
@@ -1404,7 +1342,7 @@
         <string>Old Password</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_18">
+      <widget class="QLineEdit" name="oldPasswordLineEdit">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -1443,7 +1381,7 @@
         <string>Confirm Password</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_19">
+      <widget class="QLineEdit" name="confirmNewPasswordLineEdit">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -1456,7 +1394,7 @@
         <enum>QLineEdit::Password</enum>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_20">
+      <widget class="QLineEdit" name="newPasswordLineEdit">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -1469,7 +1407,7 @@
         <enum>QLineEdit::Password</enum>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="updatePasswordPushButton">
        <property name="geometry">
         <rect>
          <x>620</x>

@@ -1,14 +1,13 @@
 # change test database to production
 
 from sqlalchemy import create_engine
-from sqlalchemy import Table, Column, Integer, String, Boolean, Float, \
+from sqlalchemy import Table, Column, Integer, BigInteger, String, Boolean, Float, \
     Date, Time, DateTime, MetaData, ForeignKey
 from sqlalchemy.sql.expression import select
 from sqlalchemy import and_, or_
 
 
 class DBHelper(object):
-
     INVALID_USERNAME = 0
     INVALID_PASSWORD = -1
     LOGIN_SUCCESSFUL = 1
@@ -55,7 +54,7 @@ class DBHelper(object):
             Column('address_line_3', String),
             Column('pincode', String, ForeignKey(self.geolocation.c.pincode)),
             Column('gender', String),
-            Column('resume_uploaded', Boolean),
+            Column('resume_link', String),
             Column('email_id', String),
             Column('gpa_1', Float),
             Column('gpa_2', Float),
@@ -78,6 +77,7 @@ class DBHelper(object):
         self.companies = Table(
             'companies', self.meta,
             Column('company_tin', String, primary_key=True),
+            Column('about_company', String),
             Column('name', String),
             Column('for_intern', Boolean),
             Column('for_placement', Boolean),
@@ -85,6 +85,7 @@ class DBHelper(object):
             Column('contact_no', String),
             Column('email_id', String),
             Column('location', String),
+            Column('note', String)
         )
 
         self.student_manages_company = Table(
@@ -102,8 +103,8 @@ class DBHelper(object):
             Column('deadline', DateTime(timezone=True)),
             Column('dov', Date),
             Column('process_ongoing', Boolean),
-            Column('package_placement', Integer),
-            Column('stipend_intern', Integer),
+            Column('package_placement', BigInteger),
+            Column('stipend_intern', BigInteger),
             Column('duration_intern', Integer),
             Column('company_tin', String, ForeignKey(self.companies.c.company_tin))
         )
@@ -126,20 +127,20 @@ class DBHelper(object):
 
         self.student_applies_for_job = Table(
             'student_applies_for_job', self.meta,
-            Column('roll_no', String, primary_key=True),
-            Column('job_id', String, primary_key=True),
+            Column('roll_no', String, ForeignKey(self.students.c.roll_no), primary_key=True),
+            Column('job_id', String, ForeignKey(self.jobs.c.job_id), primary_key=True),
             Column('is_shortlisted', Boolean),
             Column('is_selected', Boolean)
         )
 
         self.student_applies_for_training = Table(
             'student_applies_for_training', self.meta,
-            Column('roll_no', String, primary_key=True),
-            Column('training_id', String, primary_key=True),
+            Column('roll_no', String, ForeignKey(self.students.c.roll_no), primary_key=True),
+            Column('training_id', String, ForeignKey(self.trainings.c.training_id), primary_key=True),
         )
 
-        self.branches = Table(
-            'branches', self.meta,
+        self.branch_course = Table(
+            'branch_course', self.meta,
             Column('branch', String, primary_key=True),
             Column('course', String, primary_key=True)
         )
@@ -283,9 +284,9 @@ class DBHelper(object):
         self.connection.execute(command)
 
     def update_student_details(self, student_details):
-        command = self.students.update().where(self.students.c.roll_no == student_details['rollno']).values(
-            student_details
-        )
+        command = self.students.update().where(
+            self.students.c.roll_no == student_details['rollno']
+        ).values(student_details)
         self.connection.execute(command)
 
     def update_company_details(self, company_details):
@@ -328,7 +329,6 @@ class DBHelper(object):
         columns = [column.key for column in self.branches.columns]
 
         return dict(zip(columns, result_restructured))
-
 
     def populate_branches_eligible_table(self, filename):
         import pandas as pd
@@ -504,7 +504,7 @@ class DBHelper(object):
                                                     gpa_4=row[14], gpa_5=row[15], gpa_6=row[16], gpa_7=row[17],
                                                     course=row[18], branch=row[19], category=row[20], grad_year=row[21],
                                                     dob=row[22], no_of_backlogs=row[23], marks_10=row[24],
-                                                    marks_12=row[25],  is_PC=row[26])
+                                                    marks_12=row[25], is_PC=row[26])
             self.connection.execute(command)
 
     def populate_trainings_table(self, filename):
@@ -526,6 +526,22 @@ class DBHelper(object):
                                                      time=row[3], company_tin=row[4])
             self.connection.execute(command)
 
+    def populate_tables(self):
+        self.populate_geolocation_table('pincodes_delhi_haryana.csv')
+
+        self.populate_students_table('students.csv')
+        self.populate_companies_table('companies.csv')
+        self.populate_trainings_table('trainings.csv')
+
+        self.populate_branch_course_table('branch_course.csv')
+        self.populate_branches_eligible_table('branches_eligible.csv')
+        self.populate_jobs_table('jobs.csv')
+        self.populate_login_credentials_company_table('login_credentials_company.csv')
+        self.populate_login_credentials_student_table('login_credentials_student.csv')
+        self.populate_student_applies_for_job_table('student_applies_for_job.csv')
+        self.populate_student_applies_for_training_table('student_applies_for_training.csv')
+        self.populate_student_manages_company_table('student_manages_company.csv')
+
 
 if __name__ == '__main__':
     username = 'lruafctxgsjdsb'
@@ -535,4 +551,4 @@ if __name__ == '__main__':
 
     db = DBHelper(username, password, host, database, debug_mode=True)
     # db.create_tables()
-    # db.populate_geolocation_table()
+    # db.populate_tables()

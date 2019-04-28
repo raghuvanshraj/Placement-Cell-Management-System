@@ -142,7 +142,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -173,7 +173,7 @@
         <string>Company Name</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_23">
+      <widget class="QLineEdit" name="nameLineEdit">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -221,17 +221,17 @@
       <widget class="QLabel" name="label_34">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>0</x>
          <y>550</y>
-         <width>141</width>
-         <height>16</height>
+         <width>161</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>Coordinator Respnsible</string>
+        <string>Coordinator(s) Respnsible</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_24">
+      <widget class="QLineEdit" name="pcLineEdit">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -267,7 +267,7 @@
         <string>About Company</string>
        </property>
       </widget>
-      <widget class="QTextEdit" name="textEdit_4">
+      <widget class="QTextEdit" name="aboutCompanyTextEdit">
        <property name="geometry">
         <rect>
          <x>130</x>
@@ -290,7 +290,7 @@
         <string>Job Profile</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_27">
+      <widget class="QLineEdit" name="jobProfileLineEdit">
        <property name="geometry">
         <rect>
          <x>100</x>
@@ -325,7 +325,7 @@
          <string>Cut-Off</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_30">
+       <widget class="QLineEdit" name="cutoffLineEdit">
         <property name="geometry">
          <rect>
           <x>290</x>
@@ -348,7 +348,7 @@
          <string>Branches Eligible</string>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox">
+       <widget class="QCheckBox" name="bTechCheckBox">
         <property name="geometry">
          <rect>
           <x>160</x>
@@ -361,7 +361,7 @@
          <string>B. Tech.</string>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_2">
+       <widget class="QCheckBox" name="mTechCheckBox">
         <property name="geometry">
          <rect>
           <x>280</x>
@@ -374,17 +374,7 @@
          <string>M. Tech.</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_32">
-        <property name="geometry">
-         <rect>
-          <x>430</x>
-          <y>40</y>
-          <width>311</width>
-          <height>81</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QCommandLinkButton" name="commandLinkButton">
+       <widget class="QCommandLinkButton" name="addAnotherJobCommandLinkButton">
         <property name="geometry">
          <rect>
           <x>600</x>
@@ -403,7 +393,7 @@
          <string>Add another Job</string>
         </property>
        </widget>
-       <widget class="QListView" name="listView">
+       <widget class="QListView" name="eligibleCoursesListView">
         <property name="geometry">
          <rect>
           <x>210</x>
@@ -442,7 +432,7 @@
          <string>Stipend</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_28">
+       <widget class="QLineEdit" name="stipendLineEdit">
         <property name="geometry">
          <rect>
           <x>90</x>
@@ -465,7 +455,7 @@
          <string>Location</string>
         </property>
        </widget>
-       <widget class="QListView" name="listView_2">
+       <widget class="QListView" name="locationListView">
         <property name="geometry">
          <rect>
           <x>480</x>
@@ -491,7 +481,7 @@
          <string>Date of Visit</string>
         </property>
        </widget>
-       <widget class="QDateEdit" name="dateEdit_2">
+       <widget class="QDateEdit" name="dovDateEdit">
         <property name="geometry">
          <rect>
           <x>290</x>
@@ -514,7 +504,7 @@
          <string>Application Deadline</string>
         </property>
        </widget>
-       <widget class="QDateEdit" name="dateEdit">
+       <widget class="QDateEdit" name="deadlineDateEdit">
         <property name="geometry">
          <rect>
           <x>630</x>
@@ -557,29 +547,39 @@
          </property>
         </item>
        </widget>
+       <widget class="QTextEdit" name="jobDescTextEdit">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>29</y>
+          <width>311</width>
+          <height>91</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_31">
+      <widget class="QTextEdit" name="noteTextEdit">
        <property name="geometry">
         <rect>
-         <x>440</x>
+         <x>430</x>
          <y>550</y>
-         <width>301</width>
-         <height>71</height>
+         <width>311</width>
+         <height>61</height>
         </rect>
        </property>
       </widget>
       <zorder>groupBox</zorder>
       <zorder>label_33</zorder>
-      <zorder>lineEdit_23</zorder>
+      <zorder>nameLineEdit</zorder>
       <zorder>jobsTableWidget</zorder>
       <zorder>label_34</zorder>
-      <zorder>lineEdit_24</zorder>
+      <zorder>pcLineEdit</zorder>
       <zorder>label_35</zorder>
       <zorder>label_36</zorder>
-      <zorder>textEdit_4</zorder>
+      <zorder>aboutCompanyTextEdit</zorder>
       <zorder>label_2</zorder>
-      <zorder>lineEdit_27</zorder>
-      <zorder>lineEdit_31</zorder>
+      <zorder>jobProfileLineEdit</zorder>
+      <zorder>noteTextEdit</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
@@ -590,9 +590,9 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>80</y>
+        <y>20</y>
         <width>761</width>
-        <height>541</height>
+        <height>601</height>
        </rect>
       </property>
       <property name="autoFillBackground">
@@ -624,24 +624,6 @@
        </property>
       </column>
      </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>20</y>
-        <width>191</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Applications</string>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -651,9 +633,9 @@
       <property name="geometry">
        <rect>
         <x>130</x>
-        <y>60</y>
+        <y>20</y>
         <width>491</width>
-        <height>571</height>
+        <height>611</height>
        </rect>
       </property>
       <property name="autoFillBackground">
@@ -674,24 +656,6 @@
         <string>Name</string>
        </property>
       </column>
-     </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>20</y>
-        <width>191</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Final Selections</string>
-      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab">
