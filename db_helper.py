@@ -108,6 +108,7 @@ class DBHelper(object):
         self.branches_eligible = Table(
             'branches_eligible', self.meta,
             Column('branch', String, primary_key=True),
+            Column('course', String, primary_key=True),
             Column('job_id', String, primary_key=True)
         )
 
