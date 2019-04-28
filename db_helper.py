@@ -9,6 +9,10 @@ from sqlalchemy import and_, or_
 
 class DBHelper(object):
 
+    INVALID_USERNAME = 0
+    INVALID_PASSWORD = -1
+    LOGIN_SUCCESSFUL = 1
+
     def __init__(self, username, password, host, database, debug_mode):
         self.uri = 'postgres://' + username + ':' + password + '@' + host + '/' + database
         self.engine = create_engine(self.uri, echo=debug_mode)
@@ -155,13 +159,13 @@ class DBHelper(object):
 
         if row:
             if row[-1] == password:
-                return True
+                return DBHelper.LOGIN_SUCCESSFUL
             else:
                 print('Incorrect Password')
-                return False
+                return DBHelper.INVALID_PASSWORD
         else:
             print('Incorrect Username')
-            return False
+            return DBHelper.INVALID_USERNAME
 
     def login_company(self, username, password):
         command = self.login_credentials_company.select(
@@ -172,13 +176,13 @@ class DBHelper(object):
 
         if row:
             if row[-1] == password:
-                return True
+                return DBHelper.LOGIN_SUCCESSFUL
             else:
                 print('Incorrect Password')
-                return False
+                return DBHelper.INVALID_PASSWORD
         else:
             print('Incorrect Username')
-            return False
+            return DBHelper.INVALID_USERNAME
 
     def fetch_job_details(self, job_id):
         command = self.jobs.select(
