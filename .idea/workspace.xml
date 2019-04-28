@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a4a9406-185c-4780-8660-e6063b0a289d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csv_files/login_credentials_student.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csv_files/login_credentials_student.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_helper.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,14 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="33" selection-end-column="57" />
+            <state relative-caret-position="221">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#38#74#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/csv_files/login_credentials_student.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -71,6 +79,7 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/frontend_manager.py" />
         <option value="$PROJECT_DIR$/db_helper.py" />
+        <option value="$PROJECT_DIR$/csv_files/login_credentials_student.csv" />
       </list>
     </option>
   </component>
@@ -482,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556438059522</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="modified csv files and db_helper">
+      <created>1556438969382</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1556438969382</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -512,7 +528,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32868218" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3125884" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3125884" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50039524" side_tool="true" weight="0.3281471" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49960473" weight="0.47807637" />
@@ -543,7 +559,8 @@
     <MESSAGE value="updated UI files wheeeeeeeeeeeeeeeeeeee" />
     <MESSAGE value="updated dbhelper.py" />
     <MESSAGE value="added csv files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added csv files" />
+    <MESSAGE value="modified csv files and db_helper" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified csv files and db_helper" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$frontend_manager.coverage" NAME="frontend_manager Coverage Results" MODIFIED="1556196536336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -639,11 +656,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="33" selection-end-column="57" />
+        <state relative-caret-position="221">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="e#38#74#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/csv_files/login_credentials_student.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
         </state>
       </provider>
     </entry>
