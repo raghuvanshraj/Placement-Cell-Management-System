@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a4a9406-185c-4780-8660-e6063b0a289d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Placement-Cell-Management-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Placement-Cell-Management-System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ui/about_company.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/about_company.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/icons.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/icons.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ui/intern_placement.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/intern_placement.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/ui/login.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/login.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ui/placement_cell_recruiter.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/placement_cell_recruiter.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/ui/placement_cell_student.ui" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ui/placement_cell_student.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/icons_rc.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3300">
-              <caret line="169" column="73" selection-start-line="169" selection-start-column="73" selection-end-line="169" selection-end-column="73" />
+            <state relative-caret-position="275">
+              <caret line="177" column="28" lean-forward="true" selection-start-line="177" selection-start-column="28" selection-end-line="177" selection-end-column="28" />
               <folding>
                 <element signature="e#38#74#0" expanded="true" />
               </folding>
@@ -34,14 +35,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="141" column="48" selection-start-line="141" selection-start-column="48" selection-end-line="141" selection-end-column="48" />
+            <state relative-caret-position="-239">
+              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements/requirements.cmd">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -133,8 +143,7 @@
             <path>
               <item name="Placement-Cell-Management-System" type="b2602c69:ProjectViewProjectNode" />
               <item name="Placement-Cell-Management-System" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="requirements" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -319,9 +328,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.frontend_manager" />
+        <item itemvalue="Python.db_helper" />
         <item itemvalue="Python.intern_placement" />
         <item itemvalue="Python.about_company" />
-        <item itemvalue="Python.db_helper" />
         <item itemvalue="Python.login_intern" />
       </list>
     </recent_temporary>
@@ -381,7 +390,7 @@
       <workItem from="1556262358656" duration="5247000" />
       <workItem from="1556267700310" duration="1216000" />
       <workItem from="1556366613346" duration="7725000" />
-      <workItem from="1556436528567" duration="622000" />
+      <workItem from="1556436528567" duration="3162000" />
     </task>
     <task id="LOCAL-00001" summary="added necessary files">
       <created>1549263601793</created>
@@ -516,11 +525,25 @@
       <option name="project" value="LOCAL" />
       <updated>1556264329884</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="connecting frontend">
+      <created>1556437447857</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1556437447857</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added course column to branched_eligible table">
+      <created>1556437635844</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1556437635844</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88753000" />
+    <option name="totallyTimeSpent" value="91293000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -540,7 +563,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4988161" weight="0.2217262" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4988161" visible="true" weight="0.2217262" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -548,7 +571,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.31044775" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5011839" side_tool="true" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5011839" side_tool="true" weight="0.39880952" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49960473" weight="0.21279761" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32533732" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -578,10 +601,12 @@
     <MESSAGE value="added object names for UI intern_placement.ui" />
     <MESSAGE value="added .gitignore" />
     <MESSAGE value="updated login.ui object names" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated login.ui object names" />
+    <MESSAGE value="connecting frontend" />
+    <MESSAGE value="added course column to branched_eligible table" />
+    <option name="LAST_COMMIT_MESSAGE" value="added course column to branched_eligible table" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$frontend_manager.coverage" NAME="frontend_manager Coverage Results" MODIFIED="1556391822704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$frontend_manager.coverage" NAME="frontend_manager Coverage Results" MODIFIED="1556439906345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$prepare.coverage" NAME="prepare Coverage Results" MODIFIED="1554729596449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$test.coverage" NAME="test Coverage Results" MODIFIED="1556387645030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$placement_cell_recruiter.coverage" NAME="placement_cell_recruiter Coverage Results" MODIFIED="1555330225836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend/code" />
@@ -589,6 +614,7 @@
     <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$about_company.coverage" NAME="about_company Coverage Results" MODIFIED="1556010650287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend/code" />
     <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$login_intern.coverage" NAME="login_intern Coverage Results" MODIFIED="1555765743758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend/code" />
     <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$intern_placement.coverage" NAME="intern_placement Coverage Results" MODIFIED="1556010893529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frontend/code" />
+    <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$db_helper.coverage" NAME="db_helper Coverage Results" MODIFIED="1556439157913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -620,13 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements/requirements.cmd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell.py" />
     <entry file="file://$PROJECT_DIR$/frontend/code/placement_cell_recruiter.py" />
     <entry file="file://$PROJECT_DIR$/csv_files/indian_pincodes.csv">
@@ -655,16 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3300">
-          <caret line="169" column="73" selection-start-line="169" selection-start-column="73" selection-end-line="169" selection-end-column="73" />
-          <folding>
-            <element signature="e#38#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -675,12 +684,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements/requirements.cmd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="141" column="48" selection-start-line="141" selection-start-column="48" selection-end-line="141" selection-end-column="48" />
+        <state relative-caret-position="-239">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="177" column="28" lean-forward="true" selection-start-line="177" selection-start-column="28" selection-end-line="177" selection-end-column="28" />
+          <folding>
+            <element signature="e#38#74#0" expanded="true" />
           </folding>
         </state>
       </provider>

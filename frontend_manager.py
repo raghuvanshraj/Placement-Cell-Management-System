@@ -96,6 +96,7 @@ class Login(QMainWindow, login_ui):
         self.loginPushButtonRecruiter.clicked.connect(self.loginRecruiter)
         self.studentPushButton.clicked.connect(self.switchToStudentsTab)
         self.recruiterPushButton.clicked.connect(self.switchToRecruiterTab)
+        # self.studentUsernameLineEdit.setStyleSheet("border: 1px solid red;")
 
     def forgotPasswordCommandLinkButtonListener(self):
         self.forgotPasswordFrame.show()
@@ -112,6 +113,8 @@ class Login(QMainWindow, login_ui):
         self.loginDetailsTabWidget.setCurrentIndex(1)
 
     def loginStudent(self):
+        username = self.studentUsernameLineEdit.text()
+        password = self.studentPasswordLineEdit.text()
         # db.login_student(is_intern)
         stacked_window.setCurrentIndex(4)
 
@@ -138,10 +141,8 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
         self.myProfilePushButton.clicked.connect(self.switchToProfileTab)
         self.myAccountPushButton.clicked.connect(self.switchToAccountTab)
         self.signOutPushButton.clicked.connect(self.signOut)
-        self.jobOpeningsTableWidget.setSizeAdjustPolicy(
-            QAbstractScrollArea.AdjustToContents
-        )
-        self.jobOpeningsTableWidget.resizeColumnsToContents()
+        self.jobOpeningsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.applicationsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
     def switchToJobOpeningsTab(self):
         self.mainTabWidget.setCurrentIndex(0)

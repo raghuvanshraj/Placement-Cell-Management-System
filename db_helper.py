@@ -31,7 +31,6 @@ class DBHelper(object):
             'login_credentials_company', self.meta,
             Column('username', String, primary_key=True),
             Column('password', String, nullable=False),
-            Column('for_intern', Boolean, nullable=False)
         )
 
         self.geolocation = Table(
@@ -144,7 +143,7 @@ class DBHelper(object):
     def create_tables(self):
         self.meta.create_all(self.engine)
 
-    def login_student(self, for_intern):
+    def login_student(self, username, password, for_intern):
         command = self.login_credentials_student.select(
             whereclause=and_(
                 self.login_credentials_student.c.username == username,
@@ -164,12 +163,9 @@ class DBHelper(object):
             print('Incorrect Username')
             return False
 
-    def login_company(self, for_intern):
+    def login_company(self, username, password):
         command = self.login_credentials_company.select(
-            whereclause=and_(
-                self.login_credentials_company.c.username == username,
-                self.login_credentials_company.c.for_intern == for_intern
-            )
+            whereclause=self.login_credentials_company.c.username == username,
         )
         result = self.connection.execute(command)
         row = result.fetchone()

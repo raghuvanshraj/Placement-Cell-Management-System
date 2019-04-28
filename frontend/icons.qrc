@@ -13,5 +13,6 @@
 		<file>icons/attachment.png</file>
 		<file>icons/info.png</file>
 		<file>icons/selected.png</file>
+		<file>icons/logo.png</file>
 	</qresource>
 </RCC>

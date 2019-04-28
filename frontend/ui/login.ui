@@ -77,6 +77,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(7, 7, 7);</string>
+       </property>
        <property name="echoMode">
         <enum>QLineEdit::Normal</enum>
        </property>
@@ -251,6 +254,9 @@
     </widget>
    </widget>
    <widget class="QFrame" name="forgotPasswordFrame">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>140</x>

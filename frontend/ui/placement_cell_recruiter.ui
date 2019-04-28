@@ -20,7 +20,7 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>350</y>
       <width>131</width>
       <height>51</height>
@@ -66,7 +66,7 @@
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>430</y>
       <width>131</width>
       <height>51</height>
@@ -89,7 +89,7 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>190</y>
       <width>131</width>
       <height>51</height>
@@ -112,7 +112,7 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>270</y>
       <width>131</width>
       <height>51</height>
@@ -900,6 +900,25 @@
       </widget>
      </widget>
     </widget>
+   </widget>
+   <widget class="QLabel" name="label_37">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>141</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../icons.qrc">:/icons/logo.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
