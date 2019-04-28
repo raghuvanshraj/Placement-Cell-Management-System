@@ -503,7 +503,7 @@ class DBHelper(object):
                                                     gpa_4=row[14], gpa_5=row[15], gpa_6=row[16], gpa_7=row[17],
                                                     course=row[18], branch=row[19], category=row[20], grad_year=row[21],
                                                     dob=row[22], no_of_backlogs=row[23], marks_10=row[24],
-                                                    marks_12=row[25], is_PC=row[26])
+                                                    marks_12=row[25],  is_PC=row[26])
             self.connection.execute(command)
 
     def populate_trainings_table(self, filename):
