@@ -96,6 +96,11 @@ class Login(QMainWindow, login_ui):
         self.loginPushButtonRecruiter.clicked.connect(self.loginRecruiter)
         self.studentPushButton.clicked.connect(self.switchToStudentsTab)
         self.recruiterPushButton.clicked.connect(self.switchToRecruiterTab)
+        self.studentUsernameLineEdit.textChanged.connect(lambda: self.studentUsernameLineEdit.setStyleSheet(""))
+        self.studentPasswordLineEdit.textChanged.connect(lambda: self.studentPasswordLineEdit.setStyleSheet(""))
+        self.recruiterUsernameLineEdit.textChanged.connect(lambda: self.recruiterUsernameLineEdit.setStyleSheet(""))
+        self.recruiterPasswordLineEdit.textChanged.connect(lambda: self.recruiterPasswordLineEdit.setStyleSheet(""))
+
         # self.studentUsernameLineEdit.setStyleSheet("border: 1px solid red;")
 
     def forgotPasswordCommandLinkButtonListener(self):
@@ -113,13 +118,29 @@ class Login(QMainWindow, login_ui):
         self.loginDetailsTabWidget.setCurrentIndex(1)
 
     def loginStudent(self):
-        username = self.studentUsernameLineEdit.text()
-        password = self.studentPasswordLineEdit.text()
-        # db.login_student(is_intern)
+        # username = self.studentUsernameLineEdit.text()
+        # password = self.studentPasswordLineEdit.text()
+        # login_state = db.login_student(username, password, is_intern)
+        # if login_state == DBHelper.LOGIN_SUCCESSFUL:
+        #     stacked_window.setCurrentIndex(4)
+        # else:
+        #     if login_state == DBHelper.INVALID_USERNAME:
+        #         self.studentUsernameLineEdit.setStyleSheet("border: 1px solid red;")
+        #     elif login_state == DBHelper.INVALID_PASSWORD:
+        #         self.studentPasswordLineEdit.setStyleSheet("border: 1px solid red;")
         stacked_window.setCurrentIndex(4)
 
     def loginRecruiter(self):
-        # db.login_company(is_intern)
+        # username = self.studentUsernameLineEdit.text()
+        # password = self.studentPasswordLineEdit.text()
+        # login_state = db.login_company(username, password)
+        # if login_state == DBHelper.LOGIN_SUCCESSFUL:
+        #     stacked_window.setCurrentIndex(4)
+        # else:
+        #     if login_state == DBHelper.INVALID_USERNAME:
+        #         self.recruiterUsernameLineEdit.setStyleSheet("border: 1px solid red;")
+        #     elif login_state == DBHelper.INVALID_PASSWORD:
+        #         self.recruiterPasswordLineEdit.setStyleSheet("border: 1px solid red;")
         stacked_window.setCurrentIndex(3)
 
 
@@ -128,6 +149,30 @@ class PlacementCellRecruiter(QMainWindow, placement_cell_recruiter_ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.mainTabWidget.tabBar().setVisible(False)
+        self.companyInfoPushButton.clicked.connect(self.switchToCompanyInfoTab)
+        self.applicationsPushButton.clicked.connect(self.switchToApplicationsTab)
+        self.selectionsPushButton.clicked.connect(self.switchToSelectionsTab)
+        self.myAccountPushButton.clicked.connect(self.switchToAccountTab)
+        self.signOutPushButton.clicked.connect(self.signOut)
+        self.applicationsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.jobsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.selectionsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
+    def switchToCompanyInfoTab(self):
+        self.mainTabWidget.setCurrentIndex(0)
+
+    def switchToApplicationsTab(self):
+        self.mainTabWidget.setCurrentIndex(1)
+
+    def switchToSelectionsTab(self):
+        self.mainTabWidget.setCurrentIndex(2)
+
+    def switchToAccountTab(self):
+        self.mainTabWidget.setCurrentIndex(3)
+
+    def signOut(self):
+        stacked_window.setCurrentIndex(2)
 
 
 class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
@@ -143,6 +188,9 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
         self.signOutPushButton.clicked.connect(self.signOut)
         self.jobOpeningsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.applicationsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
+    def populateJobOpeningsTable(self):
+        jobs = db.get_job_openings()
 
     def switchToJobOpeningsTab(self):
         self.mainTabWidget.setCurrentIndex(0)
