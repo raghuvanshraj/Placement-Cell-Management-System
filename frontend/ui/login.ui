@@ -26,7 +26,7 @@
     <property name="title">
      <string>Resume Manager</string>
     </property>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="recruiterPushButton">
      <property name="geometry">
       <rect>
        <x>370</x>
@@ -39,7 +39,7 @@
       <string>Recruiter</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="studentPushButton">
      <property name="geometry">
       <rect>
        <x>100</x>
@@ -52,7 +52,7 @@
       <string>Student</string>
      </property>
     </widget>
-    <widget class="QTabWidget" name="tabWidget">
+    <widget class="QTabWidget" name="loginDetailsTabWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -68,38 +68,44 @@
       <attribute name="title">
        <string>Tab 1</string>
       </attribute>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="studentUsernameLineEdit">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>30</x>
          <y>70</y>
          <width>631</width>
          <height>22</height>
         </rect>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Normal</enum>
+       </property>
        <property name="placeholderText">
         <string>Student Username</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="studentPasswordLineEdit">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>30</x>
          <y>140</y>
          <width>631</width>
          <height>22</height>
         </rect>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
        <property name="placeholderText">
         <string>Student Password</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="loginPushButtonStudent">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>30</x>
          <y>260</y>
-         <width>651</width>
+         <width>631</width>
          <height>28</height>
         </rect>
        </property>
@@ -107,7 +113,7 @@
         <string>LOG IN</string>
        </property>
       </widget>
-      <widget class="QCommandLinkButton" name="forgotPasswordCommandLinkButton">
+      <widget class="QCommandLinkButton" name="forgotPasswordCommandLinkButtonStudent">
        <property name="geometry">
         <rect>
          <x>510</x>
@@ -120,10 +126,33 @@
         <font>
          <family>Segoe UI</family>
          <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
         <string>Forgot Password?</string>
+       </property>
+      </widget>
+      <widget class="QCommandLinkButton" name="loginBackCommandLinkButtonStudent">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>190</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Back</string>
        </property>
       </widget>
      </widget>
@@ -131,37 +160,56 @@
       <attribute name="title">
        <string>Tab 2</string>
       </attribute>
-      <widget class="QLineEdit" name="lineEdit_3">
+      <widget class="QPushButton" name="loginPushButtonRecruiter">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>50</y>
-         <width>431</width>
-         <height>22</height>
+         <x>30</x>
+         <y>260</y>
+         <width>631</width>
+         <height>28</height>
         </rect>
        </property>
-       <property name="placeholderText">
-        <string>Recruiter Username</string>
+       <property name="text">
+        <string>LOG IN</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_4">
+      <widget class="QLineEdit" name="recruiterPasswordLineEdit">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>100</y>
-         <width>431</width>
+         <x>30</x>
+         <y>140</y>
+         <width>631</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
        </property>
        <property name="placeholderText">
         <string>Recruiter Password</string>
        </property>
       </widget>
-      <widget class="QCommandLinkButton" name="commandLinkButton_2">
+      <widget class="QLineEdit" name="recruiterUsernameLineEdit">
        <property name="geometry">
         <rect>
-         <x>300</x>
-         <y>130</y>
+         <x>30</x>
+         <y>70</y>
+         <width>631</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Normal</enum>
+       </property>
+       <property name="placeholderText">
+        <string>Recruiter Username</string>
+       </property>
+      </widget>
+      <widget class="QCommandLinkButton" name="forgotPasswordCommandLinkButtonRecruiter">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>190</y>
          <width>151</width>
          <height>31</height>
         </rect>
@@ -170,44 +218,61 @@
         <font>
          <family>Segoe UI</family>
          <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="text">
         <string>Forgot Password?</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QCommandLinkButton" name="loginBackCommandLinkButtonRecruiter">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>180</y>
-         <width>431</width>
-         <height>28</height>
+         <x>30</x>
+         <y>190</y>
+         <width>81</width>
+         <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
-        <string>LOG IN</string>
+        <string>Back</string>
        </property>
       </widget>
      </widget>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="forgotPasswordGroupBox">
+   <widget class="QFrame" name="forgotPasswordFrame">
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>80</y>
+      <y>90</y>
       <width>771</width>
       <height>201</height>
      </rect>
     </property>
-    <property name="title">
-     <string/>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
     </property>
     <widget class="QLineEdit" name="lineEdit_5">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>90</x>
        <y>80</y>
        <width>591</width>
        <height>22</height>
@@ -220,7 +285,7 @@
     <widget class="QPushButton" name="pushButton_5">
      <property name="geometry">
       <rect>
-       <x>550</x>
+       <x>590</x>
        <y>140</y>
        <width>93</width>
        <height>28</height>
@@ -233,7 +298,7 @@
     <widget class="QLineEdit" name="lineEdit_6">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>90</x>
        <y>30</y>
        <width>591</width>
        <height>22</height>
@@ -241,6 +306,27 @@
      </property>
      <property name="placeholderText">
       <string>Enter Roll Number</string>
+     </property>
+    </widget>
+    <widget class="QCommandLinkButton" name="forgotPasswordBackCommandLinkButton">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>130</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>8</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Back</string>
      </property>
     </widget>
    </widget>

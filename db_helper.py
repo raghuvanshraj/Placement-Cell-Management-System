@@ -6,6 +6,7 @@ from sqlalchemy import Table, Column, Integer, String, Boolean, Float, \
 from sqlalchemy.sql.expression import select
 from sqlalchemy import and_, or_
 
+
 class DBHelper(object):
 
     def __init__(self, username, password, host, database, debug_mode):
@@ -18,16 +19,19 @@ class DBHelper(object):
             print("Connection Failed:", err)
 
         self.meta = MetaData(bind=self.engine)
+
         self.login_credentials_student = Table(
             'login_credentials_student', self.meta,
             Column('username', String, primary_key=True),
-            Column('password', String, nullable=False)
+            Column('password', String, nullable=False),
+            Column('for_intern', Boolean, nullable=False)
         )
 
         self.login_credentials_company = Table(
             'login_credentials_company', self.meta,
             Column('username', String, primary_key=True),
-            Column('password', String, nullable=False)
+            Column('password', String, nullable=False),
+            Column('for_intern', Boolean, nullable=False)
         )
 
         self.geolocation = Table(
@@ -139,9 +143,12 @@ class DBHelper(object):
     def create_tables(self):
         self.meta.create_all(self.engine)
 
-    def login_student(self):
+    def login_student(self, for_intern):
         command = self.login_credentials_student.select(
-            whereclause=self.login_credentials_student.c.username == username
+            whereclause=and_(
+                self.login_credentials_student.c.username == username,
+                self.login_credentials_student.c.for_intern == for_intern
+            )
         )
         result = self.connection.execute(command)
         row = result.fetchone()
@@ -156,9 +163,12 @@ class DBHelper(object):
             print('Incorrect Username')
             return False
 
-    def login_company(self):
+    def login_company(self, for_intern):
         command = self.login_credentials_company.select(
-            whereclause=self.login_credentials_company.c.username == username
+            whereclause=and_(
+                self.login_credentials_company.c.username == username,
+                self.login_credentials_company.c.for_intern == for_intern
+            )
         )
         result = self.connection.execute(command)
         row = result.fetchone()
@@ -283,9 +293,11 @@ class DBHelper(object):
         )
         self.connection.execute(command)
 
-    def add_job(self, job_details):
-        command = self.jobs.insert().values(job_details)
-        self.connection.execute(command)
+    def add_job(self, job_details, branches):
+        jobs_command = self.jobs.insert().values(job_details)
+        self.connection.execute(jobs_command)
+
+        braches_eligible_command = self.branches_eligible.insert().values()
 
     def populate_branch_course_table(self, filename):
         import pandas as pd

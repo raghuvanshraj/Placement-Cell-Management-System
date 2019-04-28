@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 import sys
 from PyQt5.uic import loadUiType
 import os
+from time import sleep
 
 from db_helper import DBHelper
 
@@ -44,8 +45,32 @@ class InternPlacement(QMainWindow, intern_placement_ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
-        self.internPushButton.clicked.connect(lambda: stacked_window.setCurrentIndex(2))
-        self.placementPushButton.clicked.connect(lambda: stacked_window.setCurrentIndex(2))
+        self.beforeDBConnection()
+        self.connectButtons()
+
+    def beforeDBConnection(self):
+        self.internPushButton.setEnabled(False)
+        self.placementPushButton.setEnabled(False)
+        self.statusBar().showMessage('Connecting to Database...')
+
+    def afterDBConnection(self):
+        self.internPushButton.setEnabled(True)
+        self.placementPushButton.setEnabled(True)
+        self.statusBar().showMessage('Database Connected')
+
+    def connectButtons(self):
+        self.internPushButton.clicked.connect(self.internPushButtonListener)
+        self.placementPushButton.clicked.connect(self.placementPushButtonListener)
+
+    def internPushButtonListener(self):
+        stacked_window.setCurrentIndex(2)
+        global is_intern
+        is_intern = True
+
+    def placementPushButtonListener(self):
+        stacked_window.setCurrentIndex(2)
+        global is_intern
+        is_intern = False
 
 
 class AboutCompany(QMainWindow, about_company_ui):
@@ -60,12 +85,39 @@ class Login(QMainWindow, login_ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
-        self.forgotPasswordGroupBox.hide()
-        self.forgotPasswordCommandLinkButton.clicked.connect(self.forgotPasswordListener)
+        self.loginDetailsTabWidget.tabBar().setVisible(False)
+        self.forgotPasswordFrame.hide()
+        self.forgotPasswordCommandLinkButtonStudent.clicked.connect(self.forgotPasswordCommandLinkButtonListener)
+        self.forgotPasswordCommandLinkButtonRecruiter.clicked.connect(self.forgotPasswordCommandLinkButtonListener)
+        self.loginBackCommandLinkButtonStudent.clicked.connect(lambda: stacked_window.setCurrentIndex(0))
+        self.loginBackCommandLinkButtonRecruiter.clicked.connect(lambda: stacked_window.setCurrentIndex(0))
+        self.forgotPasswordBackCommandLinkButton.clicked.connect(self.forgotPasswordBackCommandLinkButtonListener)
+        self.loginPushButtonStudent.clicked.connect(self.loginStudent)
+        self.loginPushButtonRecruiter.clicked.connect(self.loginRecruiter)
+        self.studentPushButton.clicked.connect(self.switchToStudentsTab)
+        self.recruiterPushButton.clicked.connect(self.switchToRecruiterTab)
 
-    def forgotPasswordListener(self):
-        self.forgotPasswordGroupBox.show()
-        self.loginDetailsGroupBox.hide()
+    def forgotPasswordCommandLinkButtonListener(self):
+        self.forgotPasswordFrame.show()
+        self.loginDetailsGroupBox.setEnabled(False)
+
+    def forgotPasswordBackCommandLinkButtonListener(self):
+        self.forgotPasswordFrame.hide()
+        self.loginDetailsGroupBox.setEnabled(True)
+
+    def switchToStudentsTab(self):
+        self.loginDetailsTabWidget.setCurrentIndex(0)
+
+    def switchToRecruiterTab(self):
+        self.loginDetailsTabWidget.setCurrentIndex(1)
+
+    def loginStudent(self):
+        # db.login_student(is_intern)
+        stacked_window.setCurrentIndex(4)
+
+    def loginRecruiter(self):
+        # db.login_company(is_intern)
+        stacked_window.setCurrentIndex(3)
 
 
 class PlacementCellRecruiter(QMainWindow, placement_cell_recruiter_ui):
@@ -80,6 +132,31 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.mainTabWidget.tabBar().setVisible(False)
+        self.jobOpeningsPushButton.clicked.connect(self.switchToJobOpeningsTab)
+        self.myApplicationsPushButton.clicked.connect(self.switchToApplicationsTab)
+        self.myProfilePushButton.clicked.connect(self.switchToProfileTab)
+        self.myAccountPushButton.clicked.connect(self.switchToAccountTab)
+        self.signOutPushButton.clicked.connect(self.signOut)
+        self.jobOpeningsTableWidget.setSizeAdjustPolicy(
+            QAbstractScrollArea.AdjustToContents
+        )
+        self.jobOpeningsTableWidget.resizeColumnsToContents()
+
+    def switchToJobOpeningsTab(self):
+        self.mainTabWidget.setCurrentIndex(0)
+
+    def switchToApplicationsTab(self):
+        self.mainTabWidget.setCurrentIndex(1)
+
+    def switchToProfileTab(self):
+        self.mainTabWidget.setCurrentIndex(2)
+
+    def switchToAccountTab(self):
+        self.mainTabWidget.setCurrentIndex(3)
+
+    def signOut(self):
+        stacked_window.setCurrentIndex(2)
 
 
 if __name__ == '__main__':
@@ -99,6 +176,16 @@ if __name__ == '__main__':
     stacked_window.addWidget(placement_cell_student_window)
 
     stacked_window.resize(intern_placement_window.size())
+    qt_rectangle = stacked_window.frameGeometry()
+    center_point = QDesktopWidget().availableGeometry().center()
+    qt_rectangle.moveCenter(center_point)
+    stacked_window.move(qt_rectangle.topLeft())
     stacked_window.show()
+
+    # sleep(3)
+
+    # db = DBHelper(username, password, host, database, debug_mode=True)
+
+    intern_placement_window.afterDBConnection()
 
     sys.exit(app.exec_())
