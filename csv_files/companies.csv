@@ -1,0 +1,11 @@
+COMPANY_TIN,NAME,FOR_INTERN,FOR_PLACEMENT,FOR_TRAINING,CONTACT_NO,EMAIL_ID,LOCATION
+google,google,FALSE,TRUE,TRUE,987659870,google_hiring@gmail.com,Bangalore
+amazon,amazon,FALSE,TRUE,TRUE,987659871,amazon_hiring@gmail.com,Delhi
+deloitte,deloitte,FALSE,TRUE,TRUE,987659872,deloitte_hiring@gmail.com,Bangalore
+pwc,pwc,FALSE,TRUE,TRUE,987659873,pwc_hiring@gmail.com,Hyderabad
+microsoft,microsoft,FALSE,TRUE,TRUE,987659874,micro_hiring@gmail.com,Bangalore
+uber,uber,TRUE,TRUE,FALSE,987659875,uber_hiring@gmail.com,Bombay
+visa,visa,TRUE,TRUE,FALSE,987659876,visa_hiring@gmail.com,Bangalore
+hero,hero,TRUE,TRUE,FALSE,987659877,hero_hiring@gmail.com,Hyderabad
+samsung,samsung,TRUE,TRUE,FALSE,987659878,samsung_hiring@gmail.com,Bangalore
+bajaj,bajaj,TRUE,TRUE,FALSE,987659879,bajaj_hiring@gmail.com,Bangalore
