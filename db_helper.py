@@ -329,6 +329,7 @@ class DBHelper(object):
 
         return dict(zip(columns, result_restructured))
 
+
     def populate_branches_eligible_table(self, filename):
         import pandas as pd
         import numpy as np
