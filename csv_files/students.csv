@@ -1,11 +1,11 @@
 ROLL_NO,F_NAME,L_NAME,CONTACT_NO,ADDRESS_LINE_1,ADDRESS_LINE_2,ADDRESS_LINE_3,PINCODE,GENDER,RESUME_UPLOADED,EMAIL_ID,GPA_1,GPA_2,GPA_3,GPA_4,GPA_5,GPA_6,GPA_7,COURSE,BRANCH,CATEGORY,GRAD_YEAR,DOB,NO_OF_BACKLOGS,MARKS_10,MARKS_12,IS_PC
-2k16/co/01,Elvera  ,Mccarville,9879870967,1156, B-1,Vasant Kunj,110070,FEMALE,TRUE,stone@meekness.com,9,9,9,9,,,,B.Tech.,Computer Engineering,General,2020,7/30/1998,0,95,98,FALSE
-2k16/mc/02,Taylor  ,Mccarville,9879870987,1157, B-2,Vasant Kunj,110070,FEMALE,TRUE,ca-tech@dps.centrin.net.id,9,9,9,9,,,,B.Tech.,Computer Engineering,General,2020,7/31/1998,0,95,98,FALSE
-2k16/ec/03,Valarie  ,Mccarville,9879870947,1158, B-3,Vasant Kunj,110070,MALE,TRUE,trinanda_lestyowati@telkomsel.co.id,9,9,9,9,,,,B.Tech.,Electrical and Electronics Engineering,General,2020,8/1/1998,0,95,98,FALSE
-2k16/ee/04,Kennith  ,Mccarville,9879870927,1159, B-4,Vasant Kunj,110070,FEMALE,TRUE,asst_dos@astonrasuna.com,9,9,9,9,,,,B.Tech.,Electrical Engineering,General,2020,8/2/1998,0,95,98,FALSE
-2k16/se/05,Iesha  ,Mccarville,9879870167,1160, B-5,Vasant Kunj,110070,FEMALE,TRUE,amartabali@dps.centrin.net.id,9,9,9,9,,,,B.Tech.,Electronics and Communication Engineering,General,2020,8/3/1998,0,95,98,FALSE
-2k15/co/01,Sherilyn  ,Mccarville,9879830967,1161, B-6,vasant vihar,110057,FEMALE,TRUE,achatv@cbn.net.id,9,9,9,9,9,9,,B.Tech.,Engineering Physics,General,2019,4/12/1997,0,95,98,TRUE
-2k15/mc/02,Kristofer  ,Mccarville,9874870967,1162, B-7,vasant vihar,110057,MALE,TRUE,bali@tuguhotels.com,9,9,9,9,9,9,,B.Tech.,Environmental Engineering,General,2019,4/13/1997,0,95,98,TRUE
-2k15/ec/03,Haydee  ,Mccarville,9879800967,1163, B-8,vasant vihar,110057,FEMALE,TRUE,baliminimalist@yahoo.com,9,9,9,9,9,,,B.Tech.,Information Technology,General,2019,4/14/1997,1,95,98,TRUE
+2k16/co/01,Elvera,Mccarville,9879870967,1156, B-1,Vasant Kunj,110070,FEMALE,TRUE,stone@meekness.com,9,9,9,9,,,,B.Tech.,Computer Engineering,General,2020,7/30/1998,0,95,98,FALSE
+2k16/mc/02,Taylor,Mccarville,9879870987,1157, B-2,Vasant Kunj,110070,FEMALE,TRUE,ca-tech@dps.centrin.net.id,9,9,9,9,,,,B.Tech.,Computer Engineering,General,2020,7/31/1998,0,95,98,FALSE
+2k16/ec/03,Valarie,Mccarville,9879870947,1158, B-3,Vasant Kunj,110070,MALE,TRUE,trinanda_lestyowati@telkomsel.co.id,9,9,9,9,,,,B.Tech.,Electrical and Electronics Engineering,General,2020,8/1/1998,0,95,98,FALSE
+2k16/ee/04,Kennith,Mccarville,9879870927,1159, B-4,Vasant Kunj,110070,FEMALE,TRUE,asst_dos@astonrasuna.com,9,9,9,9,,,,B.Tech.,Electrical Engineering,General,2020,8/2/1998,0,95,98,FALSE
+2k16/se/05,Iesha,Mccarville,9879870167,1160, B-5,Vasant Kunj,110070,FEMALE,TRUE,amartabali@dps.centrin.net.id,9,9,9,9,,,,B.Tech.,Electronics and Communication Engineering,General,2020,8/3/1998,0,95,98,FALSE
+2k15/co/01,Sherilyn,Mccarville,9879830967,1161, B-6,vasant vihar,110057,FEMALE,TRUE,achatv@cbn.net.id,9,9,9,9,9,9,,B.Tech.,Engineering Physics,General,2019,4/12/1997,0,95,98,TRUE
+2k15/mc/02,Kristofer,Mccarville,9874870967,1162, B-7,vasant vihar,110057,MALE,TRUE,bali@tuguhotels.com,9,9,9,9,9,9,,B.Tech.,Environmental Engineering,General,2019,4/13/1997,0,95,98,TRUE
+2k15/ec/03,Haydee,Mccarville,9879800967,1163, B-8,vasant vihar,110057,FEMALE,TRUE,baliminimalist@yahoo.com,9,9,9,9,9,,,B.Tech.,Information Technology,General,2019,4/14/1997,1,95,98,TRUE
 2k15/ee/04,Thomas,Mccarville,9879770967,1164, B-9,vasant vihar,110057,MALE,TRUE,bliss@thebale.com,9,9,9,9,9,9,,B.Tech.,Information Technology,General,2019,4/15/1997,0,95,98,TRUE
-2k15/se/05,Priscila  ,Mccarville,9679870967,1165, B-10,vasant vihar,110057,FEMALE,TRUE,adhidharma@denpasar.wasantara.net.id,9,9,9,9,9,9,,B.Tech.,Mathematics and Computing,General,2019,4/16/1997,0,95,98,TRUE
+2k15/se/05,Priscila,Mccarville,9679870967,1165, B-10,vasant vihar,110057,FEMALE,TRUE,adhidharma@denpasar.wasantara.net.id,9,9,9,9,9,9,,B.Tech.,Mathematics and Computing,General,2019,4/16/1997,0,95,98,TRUE

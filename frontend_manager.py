@@ -190,7 +190,9 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
         self.applicationsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
     def populateJobOpeningsTable(self):
-        jobs = db.get_job_openings()
+        # jobs = db.get_job_openings()
+        # for row, job in enumerate(jobs):
+        #     self.jobOpeningsTableWidget.
 
     def switchToJobOpeningsTab(self):
         self.mainTabWidget.setCurrentIndex(0)
