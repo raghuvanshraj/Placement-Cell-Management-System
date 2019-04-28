@@ -17,7 +17,7 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="selectionsPushButton">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -40,7 +40,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="signOutPushButton">
     <property name="geometry">
      <rect>
       <x>870</x>
@@ -63,7 +63,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="myAccountPushButton">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -86,7 +86,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="companyInfoPushButton">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -109,7 +109,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="applicationsPushButton">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -132,17 +132,17 @@
      </size>
     </property>
    </widget>
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTabWidget" name="mainTabWidget">
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>20</y>
+      <y>50</y>
       <width>801</width>
-      <height>701</height>
+      <height>671</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -183,7 +183,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QTableWidget" name="tableWidget">
+      <widget class="QTableWidget" name="jobsTableWidget">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -571,7 +571,7 @@
       <zorder>groupBox</zorder>
       <zorder>label_33</zorder>
       <zorder>lineEdit_23</zorder>
-      <zorder>tableWidget</zorder>
+      <zorder>jobsTableWidget</zorder>
       <zorder>label_34</zorder>
       <zorder>lineEdit_24</zorder>
       <zorder>label_35</zorder>
@@ -586,18 +586,23 @@
      <attribute name="title">
       <string>Page</string>
      </attribute>
-     <widget class="QTableWidget" name="tableWidget_2">
+     <widget class="QTableWidget" name="applicationsTableWidget">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>20</x>
         <y>80</y>
-        <width>741</width>
-        <height>561</height>
+        <width>761</width>
+        <height>541</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
+      <column>
+       <property name="text">
+        <string>Job Profile</string>
+       </property>
+      </column>
       <column>
        <property name="text">
         <string>Roll Number</string>
@@ -642,18 +647,23 @@
      <attribute name="title">
       <string>Page</string>
      </attribute>
-     <widget class="QTableWidget" name="tableWidget_3">
+     <widget class="QTableWidget" name="selectionsTableWidget">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>130</x>
         <y>60</y>
-        <width>741</width>
+        <width>491</width>
         <height>571</height>
        </rect>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
+      <column>
+       <property name="text">
+        <string>Job Profile</string>
+       </property>
+      </column>
       <column>
        <property name="text">
         <string>Roll Number</string>
@@ -904,7 +914,7 @@
    <widget class="QLabel" name="label_37">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>20</y>
       <width>141</width>
       <height>141</height>
@@ -920,6 +930,13 @@
      <bool>true</bool>
     </property>
    </widget>
+   <zorder>selectionsPushButton</zorder>
+   <zorder>myAccountPushButton</zorder>
+   <zorder>companyInfoPushButton</zorder>
+   <zorder>applicationsPushButton</zorder>
+   <zorder>mainTabWidget</zorder>
+   <zorder>label_37</zorder>
+   <zorder>signOutPushButton</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

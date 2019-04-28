@@ -93,9 +93,9 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>20</y>
+      <y>50</y>
       <width>801</width>
-      <height>691</height>
+      <height>661</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -108,10 +108,10 @@
      <widget class="QTableWidget" name="jobOpeningsTableWidget">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>80</y>
-        <width>751</width>
-        <height>541</height>
+        <width>761</width>
+        <height>531</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -240,10 +240,10 @@
      <widget class="QTabWidget" name="tabWidget_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>10</y>
-        <width>801</width>
-        <height>631</height>
+        <x>-10</x>
+        <y>0</y>
+        <width>811</width>
+        <height>641</height>
        </rect>
       </property>
       <property name="currentIndex">
@@ -251,7 +251,7 @@
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
-        <string>Personal</string>
+        <string> Personal</string>
        </attribute>
        <widget class="QGroupBox" name="groupBox">
         <property name="geometry">
