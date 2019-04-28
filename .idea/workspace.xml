@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a4a9406-185c-4780-8660-e6063b0a289d" name="Default Changelist" comment="" />
+    <list default="true" id="9a4a9406-185c-4780-8660-e6063b0a289d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv_files/login_credentials_student.csv" beforeDir="false" afterPath="$PROJECT_DIR$/csv_files/login_credentials_student.csv" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,23 +16,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5253">
-              <caret line="318" lean-forward="true" selection-start-line="318" selection-end-line="318" />
+            <state relative-caret-position="302">
+              <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="33" selection-end-column="57" />
               <folding>
                 <element signature="e#38#74#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/csv_files/branch_course.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -91,7 +85,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -113,6 +106,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,12 +274,12 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.test" />
       <item itemvalue="Python.about_company" />
       <item itemvalue="Python.db_helper" />
       <item itemvalue="Python.frontend_manager" />
       <item itemvalue="Python.intern_placement" />
       <item itemvalue="Python.login_intern" />
-      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
@@ -481,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556380155846</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added csv files">
+      <created>1556438059522</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1556438059522</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -497,9 +498,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12417437" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14002642" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -540,7 +542,8 @@
     <MESSAGE value="updated files" />
     <MESSAGE value="updated UI files wheeeeeeeeeeeeeeeeeeee" />
     <MESSAGE value="updated dbhelper.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated dbhelper.py" />
+    <MESSAGE value="added csv files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added csv files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Placement_Cell_Management_System$frontend_manager.coverage" NAME="frontend_manager Coverage Results" MODIFIED="1556196536336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -617,13 +620,10 @@
         <state relative-caret-position="-816" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_helper.py">
+    <entry file="file://$PROJECT_DIR$/csv_files/students.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5253">
-          <caret line="318" lean-forward="true" selection-start-line="318" selection-end-line="318" />
-          <folding>
-            <element signature="e#38#74#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -631,6 +631,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/csv_files/student_manages_company.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="33" selection-end-column="57" />
+          <folding>
+            <element signature="e#38#74#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

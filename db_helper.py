@@ -30,8 +30,7 @@ class DBHelper(object):
         self.login_credentials_company = Table(
             'login_credentials_company', self.meta,
             Column('username', String, primary_key=True),
-            Column('password', String, nullable=False),
-            Column('for_intern', Boolean, nullable=False)
+            Column('password', String, nullable=False)
         )
 
         self.geolocation = Table(
