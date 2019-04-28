@@ -1,0 +1,6 @@
+TRAINING_ID,SUBJECT_MATTER,DATE,TIME,COMPANY_TIN
+T1,workshop,8/6/2018,11:00:00,google
+T2,workshop,8/7/2018,12:00:00,amazon
+T3,workshop,8/8/2018,13:00:00,deloitte
+T4,workshop,8/9/2018,14:00:00,pwc
+T5,workshop,8/10/2018,15:00:00,microsoft
