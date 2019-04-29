@@ -127,17 +127,7 @@
       </column>
       <column>
        <property name="text">
-        <string>Branches</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>Application Deadline</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Course</string>
        </property>
       </column>
       <column>
@@ -170,12 +160,12 @@
       </column>
       <column>
        <property name="text">
-        <string>Application Status</string>
+        <string>Job Profile</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Time of Submission</string>
+        <string>Application Status</string>
        </property>
       </column>
       <column>
@@ -1600,6 +1590,7 @@
  </widget>
  <resources>
   <include location="../icons.qrc"/>
+  <include location="../../../../.designer/icons.qrc"/>
  </resources>
  <connections/>
 </ui>

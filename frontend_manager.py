@@ -137,35 +137,35 @@ class Login(QMainWindow, login_ui):
         self.loginDetailsTabWidget.setCurrentIndex(1)
 
     def loginStudent(self):
-        # username = self.studentUsernameLineEdit.text()
-        # password = self.studentPasswordLineEdit.text()
-        # login_state = db.login_student(username, password, is_intern)
-        # if login_state == DBHelper.LOGIN_SUCCESSFUL:
-        #     stacked_window.setCurrentIndex(4)
-        # else:
-        #     if login_state == DBHelper.INVALID_USERNAME:
-        #         self.studentUsernameLineEdit.setStyleSheet("border: 1px solid red;")
-        #     elif login_state == DBHelper.INVALID_PASSWORD:
-        #         self.studentPasswordLineEdit.setStyleSheet("border: 1px solid red;")
-        # global is_student
-        # is_student = True
-        # student.set_identifiers(username, password)
+        username = self.studentUsernameLineEdit.text()
+        password = self.studentPasswordLineEdit.text()
+        login_state = db.login_student(username, password, is_intern)
+        if login_state == DBHelper.LOGIN_SUCCESSFUL:
+            stacked_window.setCurrentIndex(4)
+        else:
+            if login_state == DBHelper.INVALID_USERNAME:
+                self.studentUsernameLineEdit.setStyleSheet("border: 1px solid red;")
+            elif login_state == DBHelper.INVALID_PASSWORD:
+                self.studentPasswordLineEdit.setStyleSheet("border: 1px solid red;")
+        global is_student
+        is_student = True
+        student.set_identifiers(username, password)
         stacked_window.setCurrentIndex(4)
 
     def loginRecruiter(self):
-        # username = self.recruiterUsernameLineEdit.text()
-        # password = self.recruiterPasswordLineEdit.text()
-        # login_state = db.login_company(username, password)
-        # if login_state == DBHelper.LOGIN_SUCCESSFUL:
-        #     stacked_window.setCurrentIndex(4)
-        # else:
-        #     if login_state == DBHelper.INVALID_USERNAME:
-        #         self.recruiterUsernameLineEdit.setStyleSheet("border: 1px solid red;")
-        #     elif login_state == DBHelper.INVALID_PASSWORD:
-        #         self.recruiterPasswordLineEdit.setStyleSheet("border: 1px solid red;")
-        # global is_student
-        # is_student = False
-        # recruiter.set_identifiers(username, password)
+        username = self.recruiterUsernameLineEdit.text()
+        password = self.recruiterPasswordLineEdit.text()
+        login_state = db.login_company(username, password)
+        if login_state == DBHelper.LOGIN_SUCCESSFUL:
+            stacked_window.setCurrentIndex(4)
+        else:
+            if login_state == DBHelper.INVALID_USERNAME:
+                self.recruiterUsernameLineEdit.setStyleSheet("border: 1px solid red;")
+            elif login_state == DBHelper.INVALID_PASSWORD:
+                self.recruiterPasswordLineEdit.setStyleSheet("border: 1px solid red;")
+        global is_student
+        is_student = False
+        recruiter.set_identifiers(username, password)
         stacked_window.setCurrentIndex(3)
 
 
@@ -183,6 +183,22 @@ class PlacementCellRecruiter(QMainWindow, placement_cell_recruiter_ui):
         self.applicationsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.jobsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.selectionsTableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.bTechCheckBox.toggled.connect(self.checkBoxStateChanged)
+        self.mTechCheckBox.toggled.connect(self.checkBoxStateChanged)
+
+    def checkBoxStateChanged(self):
+        self.bTechCourseComboBox.setEnabled(self.bTechCheckBox.isChecked())
+        self.mTechCourseComboBox.setEnabled(self.mTechCheckBox.isChecked())
+
+    def populateJobsTable(self):
+        jobs = db.fetch_jobs_company(recruiter.username, is_intern)
+        for row, job in enumerate(jobs):
+            for col, item in enumerate(job):
+                self.jobsTableWidget.setItem(
+                    row, col, QTableWidgetItem(str(item))
+                )
+
+            self.jobsTableWidget.insertRow(0)
 
     def populateCompanyInfoTab(self):
         company_details = db.fetch_company_details(recruiter.username)
@@ -194,7 +210,6 @@ class PlacementCellRecruiter(QMainWindow, placement_cell_recruiter_ui):
         for pc in pcs:
             pcs_string = pcs_string + ', ' + pc
         self.pcLineEdit.setText(pcs_string)
-        self.noteTextEdit.setText(company_details['note'])
 
     def populateApplicationsTable(self):
         applications = db.fetch_applications_company(recruiter.username)
@@ -215,6 +230,46 @@ class PlacementCellRecruiter(QMainWindow, placement_cell_recruiter_ui):
                 )
 
             self.selectionsTableWidget.insertRow(0)
+
+    def truncateJobFields(self):
+        self.jobProfileLineEdit.setText('')
+        self.cutoffLineEdit.setText('')
+        self.jobDescTextEdit.setText('')
+        self.eligibleCoursesListWidget.clear()
+        self.locationLineEdit.setText('')
+        self.bTechCheckBox.setChecked(False)
+        self.mTechCheckBox.setChecked(False)
+        self.locationLineEdit.setText('')
+        self.stipendLineEdit.setText('')
+
+    def addJob(self):
+        self.addJobPushButton.setEnabled(False)
+        job_details = dict()
+        job_details['job_title'] = self.jobProfileLineEdit.text()
+        job_details['description'] = self.jobDescTextEdit.text()
+        job_details['cutoff'] = self.cutoffLineEdit.text()
+        job_details['deadline'] = self.deadlineDateEdit.date()
+        job_details['dov'] = self.dovDateEdit.text()
+        job_details['process_ongoing'] = True
+        job_details['for_intern'] = is_intern
+
+        if is_intern:
+            job_details['stipend_intern'] = self.stipendLineEdit.text()
+        else:
+            job_details['package_placement'] = self.stipendLineEdit.text()
+
+        job_details['location'] = self.locationLineEdit.text()
+        job_details['company_tin'] = recruiter.username
+
+        branches = []
+        for index in range(self.eligibleCoursesListWidget.count()):
+            branches.append(self.eligibleCoursesListWidget.item(index))
+
+        db.add_job(job_details, branches)
+
+        self.addJobPushButton.setEnabled(False)
+        self.truncateJobFields()
+        self.populateJobsTable()
 
     def switchToCompanyInfoTab(self):
         self.mainTabWidget.setCurrentIndex(0)
@@ -249,7 +304,7 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
         self.confirmNewPasswordLineEdit.textChanged.connect(lambda: self.confirmNewPasswordLineEdit.setStyleSheet(""))
 
     def populateJobOpeningsTable(self):
-        jobs = db.fetch_jobs_student()
+        jobs = db.fetch_jobs_student(student.username)
         for row, job in enumerate(jobs):
             for col, item in enumerate(job):
                 self.jobOpeningsTableWidget.setItem(
@@ -259,7 +314,7 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
             self.jobOpeningsTableWidget.insertRow(0)
 
     def populateApplicationsTable(self):
-        applications = db.fetch_applications_student()
+        applications = db.fetch_applications_student(student.username)
         for row, application in enumerate(applications):
             for col, item in enumerate(application):
                 self.applicationsTableWidget.setItem(

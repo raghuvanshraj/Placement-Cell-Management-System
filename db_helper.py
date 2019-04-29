@@ -3,8 +3,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, Integer, BigInteger, String, Boolean, Float, \
     Date, Time, DateTime, MetaData, ForeignKey
-from sqlalchemy.sql.expression import select
-from sqlalchemy import and_, or_
+from sqlalchemy import and_
+from sqlalchemy.sql import select
 
 
 class DBHelper(object):
@@ -85,7 +85,6 @@ class DBHelper(object):
             Column('contact_no', String),
             Column('email_id', String),
             Column('location', String),
-            Column('note', String)
         )
 
         self.student_manages_company = Table(
@@ -96,7 +95,7 @@ class DBHelper(object):
 
         self.jobs = Table(
             'jobs', self.meta,
-            Column('job_id', String, primary_key=True),
+            Column('job_id', BigInteger, primary_key=True, autoincrement=True),
             Column('job_title', String),
             Column('description', String),
             Column('cutoff', Float),
@@ -106,6 +105,8 @@ class DBHelper(object):
             Column('package_placement', BigInteger),
             Column('stipend_intern', BigInteger),
             Column('duration_intern', Integer),
+            Column('location', String),
+            Column('for_intern', Boolean),
             Column('company_tin', String, ForeignKey(self.companies.c.company_tin))
         )
 
@@ -113,12 +114,12 @@ class DBHelper(object):
             'branches_eligible', self.meta,
             Column('branch', String, primary_key=True),
             Column('course', String, primary_key=True),
-            Column('job_id', String, primary_key=True)
+            Column('job_id', BigInteger, ForeignKey(self.jobs.c.job_id), primary_key=True)
         )
 
         self.trainings = Table(
             'trainings', self.meta,
-            Column('training_id', String, primary_key=True),
+            Column('training_id', BigInteger, primary_key=True, autoincrement=True),
             Column('subject_matter', String),
             Column('date', Date),
             Column('time', Time(timezone=True)),
@@ -128,15 +129,16 @@ class DBHelper(object):
         self.student_applies_for_job = Table(
             'student_applies_for_job', self.meta,
             Column('roll_no', String, ForeignKey(self.students.c.roll_no), primary_key=True),
-            Column('job_id', String, ForeignKey(self.jobs.c.job_id), primary_key=True),
+            Column('job_id', BigInteger, ForeignKey(self.jobs.c.job_id), primary_key=True),
             Column('is_shortlisted', Boolean),
+            Column('is_rejected', Boolean),
             Column('is_selected', Boolean)
         )
 
         self.student_applies_for_training = Table(
             'student_applies_for_training', self.meta,
             Column('roll_no', String, ForeignKey(self.students.c.roll_no), primary_key=True),
-            Column('training_id', String, ForeignKey(self.trainings.c.training_id), primary_key=True),
+            Column('training_id', BigInteger, ForeignKey(self.trainings.c.training_id), primary_key=True),
         )
 
         self.branch_course = Table(
@@ -299,7 +301,11 @@ class DBHelper(object):
         jobs_command = self.jobs.insert().values(job_details)
         self.connection.execute(jobs_command)
 
-        braches_eligible_command = self.branches_eligible.insert().values()
+        jobs_count_command = self.jobs.count()
+        job_id = self.connection.execute(jobs_count_command).fetchone()[-1]
+        for branch in branches:
+            branches_eligible_command = self.branches_eligible.insert({'job_id': job_id, 'branch': branch})
+            self.connection.execute(branches_eligible_command)
 
     def populate_branch_course_table(self, filename):
         import pandas as pd
@@ -316,7 +322,7 @@ class DBHelper(object):
                 continue
 
             unique_branch_course.append(row[0])
-            command = self.branches.insert().values(branch=row[0], course=row[1])
+            command = self.branch_course.insert().values(branch=row[0], course=row[1])
             self.connection.execute(command)
 
     def fetch_unique_branches_with_course(self, course):
@@ -376,18 +382,14 @@ class DBHelper(object):
         job = pd.read_csv(path)
         job_np = np.array(job)
 
-        unique_jobs = []
-
+        print(type(job_np[0, 6]), type(job_np[0, 7]))
         for row in job_np:
-            if row[0] in unique_jobs:
-                continue
-
-            unique_jobs.append(row[0])
-            command = self.jobs.insert().values(job_id=row[0], job_title=row[1], description=row[2],
-                                                cutoff=row[3], deadline=row[4], dov=row[5],
-                                                process_ongoing=row[6],
-                                                package_placement=row[7], stipend_intern=row[8],
-                                                duration_intern=row[9], company_tin=row[10])
+            command = self.jobs.insert().values(job_title=row[0], description=row[1],
+                                                cutoff=row[2], deadline=row[3], dov=row[4],
+                                                process_ongoing=row[5],
+                                                package_placement=row[6], stipend_intern=row[7],
+                                                duration_intern=row[8], location=row[9],
+                                                for_intern=row[10], company_tin=row[11])
             self.connection.execute(command)
 
     def populate_login_credentials_student_table(self, filename):
@@ -499,7 +501,7 @@ class DBHelper(object):
             unique_jobs.append(row[0])
             command = self.students.insert().values(roll_no=row[0], f_name=row[1], l_name=row[2], contact_no=row[3],
                                                     address_line_1=row[4], address_line_2=row[5], address_line_3=row[6],
-                                                    pincode=row[7], gender=row[8], resume_uploaded=row[9],
+                                                    pincode=row[7], gender=row[8], resume_link=row[9],
                                                     email_id=row[10], gpa_1=row[11], gpa_2=row[12], gpa_3=row[13],
                                                     gpa_4=row[14], gpa_5=row[15], gpa_6=row[16], gpa_7=row[17],
                                                     course=row[18], branch=row[19], category=row[20], grad_year=row[21],
@@ -515,32 +517,212 @@ class DBHelper(object):
         job = pd.read_csv(path)
         job_np = np.array(job)
 
-        unique_jobs = []
-
         for row in job_np:
-            if row[0] in unique_jobs:
-                continue
-
-            unique_jobs.append(row[0])
-            command = self.trainings.insert().values(training_id=row[0], subject_matter=row[1], date=row[2],
-                                                     time=row[3], company_tin=row[4])
+            command = self.trainings.insert().values(subject_matter=row[0], date=row[1],
+                                                     time=row[2], company_tin=row[3])
             self.connection.execute(command)
 
     def populate_tables(self):
-        self.populate_geolocation_table('pincodes_delhi_haryana.csv')
+        # self.populate_geolocation_table('pincodes_delhi_haryana.csv')
 
-        self.populate_students_table('students.csv')
-        self.populate_companies_table('companies.csv')
-        self.populate_trainings_table('trainings.csv')
+        # self.populate_students_table('students.csv')
+        # self.populate_companies_table('companies.csv')
+        # self.populate_trainings_table('trainings.csv')
 
-        self.populate_branch_course_table('branch_course.csv')
-        self.populate_branches_eligible_table('branches_eligible.csv')
+        # self.populate_branch_course_table('branch_course.csv')
         self.populate_jobs_table('jobs.csv')
+        self.populate_branches_eligible_table('branches_eligible.csv')
         self.populate_login_credentials_company_table('login_credentials_company.csv')
         self.populate_login_credentials_student_table('login_credentials_student.csv')
         self.populate_student_applies_for_job_table('student_applies_for_job.csv')
         self.populate_student_applies_for_training_table('student_applies_for_training.csv')
         self.populate_student_manages_company_table('student_manages_company.csv')
+
+    def fetch_applications_student(self, roll_no):
+        get_job_id_command = select([self.student_applies_for_job.c.job_id]).where(
+            self.student_applies_for_job.c.roll_no == roll_no
+        )
+        job_ids = self.connection.execute(get_job_id_command).fetchall()[:][-1]
+
+        company_tins = []
+        for job_id in job_ids:
+            get_company_id_command = select([self.jobs.c.company_tin]).where(
+                self.jobs.c.job_id == job_id
+            )
+            company_tins.append(self.connection.execute(get_company_id_command).fetchone()[-1])
+
+        company_names = []
+        dovs = []
+        for company_tin in company_tins:
+            get_company_details_command = select([self.companies.c.name, self.companies.c.dov]).where(
+                self.companies.c.company_tin == company_tin
+            )
+            result = self.connection.execute(get_company_details_command).fetchone()[1:]
+            company_names.append((result[0]))
+            dovs.append(result[1])
+
+        job_profiles = []
+        for job_id in job_ids:
+            get_job_profile_command = select([self.jobs.c.title]).where(
+                self.jobs.c.job_id == job_id
+            )
+            job_profiles.append(self.connection.execute(get_job_profile_command).fetchone()[-1])
+
+        application_statuses = []
+        for job_id in job_ids:
+            get_application_status_command = select([self.student_applies_for_job.c.is_shortlisted,
+                                                     self.student_applies_for_job.c.is_rejected,
+                                                     self.student_applies_for_job.c.is_selected]).where(
+                and_(
+                    self.student_applies_for_job.job_id == job_id,
+                    self.student_applies_for_job.roll_no == roll_no
+                )
+            )
+            result = self.connection.execute(get_application_status_command).fetchone()[1:]
+            if result[0]:
+                application_statuses.append('Shortlisted')
+            elif result[1]:
+                application_statuses.append('Rejected')
+            elif result[2]:
+                application_statuses.append('Selected')
+            else:
+                application_statuses.append('Pending')
+
+        return [company_names, job_profiles, application_statuses, dovs]
+
+    def fetch_jobs_student(self, roll_no):
+        get_branch_command = select([self.students.c.branch]).where(
+            self.students.c.roll_no == roll_no
+        )
+        student_branch = self.connection.execute(get_branch_command).fetchone()[-1]
+
+        get_job_ids_command = select([self.branches_eligible.c.job_id]).where(
+            self.branches_eligible.c.branch == student_branch
+        )
+        job_ids = self.connection.execute(get_job_ids_command).fetchall()[:][1:]
+
+        deadlines = []
+        company_tins = []
+        for job_id in job_ids:
+            get_deadline_command = select([self.jobs.c.deadline, self.jobs.c.company_tin]).where(
+                self.jobs.c.job_id == job_id
+            )
+            result = self.connection.execute(get_deadline_command).fetchone()[1:]
+            deadlines.append(result[0])
+            company_tins.append(result[1])
+
+        names = []
+        dovs = []
+        for company_tin in company_tins:
+            get_company_details_command = select([self.companies.name, self.companies.dov]).where(
+                self.companies.c.company_tin == company_tin
+            )
+            result = self.connection.execute(get_company_details_command).fetchone()[1:]
+            names.append(result[0])
+            dovs.append(result[1])
+
+        return [names, deadlines, dovs]
+
+    def fetch_jobs_company(self, company_tin, for_intern):
+        get_job_details_command = select([self.jobs.c.job_title,
+                                          self.jobs.c.cutoff,
+                                          self.jobs.c.stipend_intern if for_intern else self.jobs.c.package_placement,
+                                          self.jobs.c.deadline]).where(
+            self.jobs.c.company_tin == company_tin
+        ).distinct()
+        result = self.connection.execute(get_job_details_command).fetchall()[:][1:]
+        job_profiles = result[:][0]
+        cutoffs = result[:][1]
+        stipends = result[:][2]
+        deadlines = result[:][3]
+
+        return [job_profiles, cutoffs, stipends, deadlines]
+
+    def fetch_pc_responsible_for_company(self, company_tin):
+        get_pc_command = select([self.student_manages_company.c.roll_no]).where(
+            self.student_manages_company.c.company_tin == company_tin
+        )
+
+        pcs = self.connection.execute(get_pc_command).fetchall()[:][-1]
+
+        return pcs
+
+    def fetch_selections_company(self, company_tin):
+        get_job_ids_command = select([self.jobs.c.job_id]).where(
+            self.jobs.c.company_tin == company_tin
+        )
+        job_ids = self.connection.execute(get_job_ids_command).fetchall()[:][-1]
+
+        job_ids_ret = []
+        roll_nos = []
+        for job_id in job_ids:
+            get_roll_nos_command = select([self.student_applies_for_job.c.job_id,
+                                           self.student_applies_for_job.c.roll_no]).where(
+                and_(
+                    self.student_applies_for_job.c.job_id == job_id,
+                    self.student_applies_for_job.c.is_selected == True
+                )
+            )
+
+            result = self.connection.execute(get_roll_nos_command).fetchall()[:][1:]
+            job_ids_ret.append(result[0])
+            roll_nos.append(result[1])
+
+        job_titles = []
+        for job_id in job_ids_ret:
+            get_title_command = select([self.jobs.c.job_title]).where(
+                self.jobs.c.job_id == job_id
+            )
+            job_titles.append(self.connection.execute(get_title_command).fetchone()[-1])
+
+        names = []
+        for roll_no in roll_nos:
+            get_names_command = select([self.students.c.name]).where(
+                self.students.c.roll_no == roll_no
+            )
+
+            names.append(self.connection.execute(get_names_command).fetchall()[:][-1])
+
+        return [job_titles, roll_nos, names]
+
+    def fetch_applications_company(self, company_tin):
+        get_job_ids_command = select([self.jobs.c.job_id]).where(
+            self.jobs.c.company_tin == company_tin
+        )
+        job_ids = self.connection.execute(get_job_ids_command).fetchall()[:][-1]
+
+        job_ids_ret = []
+        roll_nos = []
+        for job_id in job_ids:
+            get_roll_nos_command = select([self.student_applies_for_job.c.job_id,
+                                           self.student_applies_for_job.c.roll_no]).where(
+                and_(
+                    self.student_applies_for_job.c.job_id == job_id,
+                )
+            )
+
+            result = self.connection.execute(get_roll_nos_command).fetchall()[:][1:]
+            job_ids_ret.append(result[0])
+            roll_nos.append(result[1])
+
+        job_titles = []
+        for job_id in job_ids_ret:
+            get_title_command = select([self.jobs.c.job_title]).where(
+                self.jobs.c.job_id == job_id
+            )
+            job_titles.append(self.connection.execute(get_title_command).fetchone()[-1])
+
+        names = []
+        resumes = []
+        for roll_no in roll_nos:
+            get_details_command = select([self.students.c.name,
+                                          self.students.c.resume_link]).where(
+                self.students.c.roll_no == roll_no
+            )
+
+            result = self.connection.execute(get_details_command).fetchone()[1:]
+            names.append(result[0])
+            resumes.append(result[1])
 
 
 if __name__ == '__main__':
@@ -551,4 +733,4 @@ if __name__ == '__main__':
 
     db = DBHelper(username, password, host, database, debug_mode=True)
     # db.create_tables()
-    # db.populate_tables()
+    db.populate_tables()
