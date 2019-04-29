@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import *
 import sys
 from PyQt5.uic import loadUiType
 import os
-from time import sleep
 
 from db_helper import DBHelper
 
@@ -39,6 +38,10 @@ class Student(object):
     def fetch_details(self):
         self.details = db.fetch_student_details(self.username)
 
+    def del_identifiers(self):
+        self.username = ''
+        self.password = ''
+
 
 class Recruiter(object):
 
@@ -53,6 +56,10 @@ class Recruiter(object):
 
     def fetch_details(self):
         self.details = db.fetch_company_details(self.username)
+
+    def del_identifiers(self):
+        self.username = ''
+        self.password = ''
 
 
 student = Student()
@@ -141,32 +148,30 @@ class Login(QMainWindow, login_ui):
         password = self.studentPasswordLineEdit.text()
         login_state = db.login_student(username, password, is_intern)
         if login_state == DBHelper.LOGIN_SUCCESSFUL:
+            global is_student
+            is_student = True
+            student.set_identifiers(username, password)
             stacked_window.setCurrentIndex(4)
         else:
             if login_state == DBHelper.INVALID_USERNAME:
                 self.studentUsernameLineEdit.setStyleSheet("border: 1px solid red;")
             elif login_state == DBHelper.INVALID_PASSWORD:
                 self.studentPasswordLineEdit.setStyleSheet("border: 1px solid red;")
-        global is_student
-        is_student = True
-        student.set_identifiers(username, password)
-        stacked_window.setCurrentIndex(4)
 
     def loginRecruiter(self):
         username = self.recruiterUsernameLineEdit.text()
         password = self.recruiterPasswordLineEdit.text()
         login_state = db.login_company(username, password)
         if login_state == DBHelper.LOGIN_SUCCESSFUL:
+            global is_student
+            is_student = False
+            recruiter.set_identifiers(username, password)
             stacked_window.setCurrentIndex(4)
         else:
             if login_state == DBHelper.INVALID_USERNAME:
                 self.recruiterUsernameLineEdit.setStyleSheet("border: 1px solid red;")
             elif login_state == DBHelper.INVALID_PASSWORD:
                 self.recruiterPasswordLineEdit.setStyleSheet("border: 1px solid red;")
-        global is_student
-        is_student = False
-        recruiter.set_identifiers(username, password)
-        stacked_window.setCurrentIndex(3)
 
 
 class PlacementCellRecruiter(QMainWindow, placement_cell_recruiter_ui):
@@ -284,6 +289,7 @@ class PlacementCellRecruiter(QMainWindow, placement_cell_recruiter_ui):
         self.mainTabWidget.setCurrentIndex(3)
 
     def signOut(self):
+        recruiter.del_identifiers()
         stacked_window.setCurrentIndex(2)
 
 
@@ -304,14 +310,32 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
         self.confirmNewPasswordLineEdit.textChanged.connect(lambda: self.confirmNewPasswordLineEdit.setStyleSheet(""))
 
     def populateJobOpeningsTable(self):
-        jobs = db.fetch_jobs_student(student.username)
-        for row, job in enumerate(jobs):
-            for col, item in enumerate(job):
-                self.jobOpeningsTableWidget.setItem(
-                    row, col, QTableWidgetItem(str(item))
-                )
+        job_profiles, deadlines, dovs = db.fetch_jobs_student(student.username)
 
+        for i in range(len(job_profiles)):
             self.jobOpeningsTableWidget.insertRow(0)
+            self.jobOpeningsTableWidget.setItem(
+                i, 0, QTableWidgetItem(job_profiles[i])
+            )
+
+        for i in range(len(deadlines)):
+            self.jobOpeningsTableWidget.setItem(
+                i, 1, QTableWidgetItem(str(deadlines[i].date()))
+            )
+
+        for i in range(len(dovs)):
+            self.jobOpeningsTableWidget.setItem(
+                i, 2, QTableWidgetItem(str(dovs[i]))
+            )
+
+        # for i in range(len)
+        # for row, job in enumerate(jobs):
+        #     for col, item in enumerate(job):
+        #         self.jobOpeningsTableWidget.setItem(
+        #             row, col, QTableWidgetItem(str(item))
+        #         )
+        #
+        #     self.jobOpeningsTableWidget.insertRow(0)
 
     def populateApplicationsTable(self):
         applications = db.fetch_applications_student(student.username)
@@ -325,46 +349,49 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
 
     def populateProfileTab(self):
         student_details = db.fetch_student_details(student.username)
-        self.firstNameLineEdit.setText(student_details['fname'])
-        self.lastNameLineEdit.setText(student_details['lname'])
+        print()
+        print(student_details)
+        print()
+        self.firstNameLineEdit.setText(student_details['f_name'])
+        self.lastNameLineEdit.setText(student_details['l_name'])
         self.emailLineEdit.setText(student_details['email_id'])
         self.phoneLineEdit.setText(student_details['contact_no'])
         # dob = student_details['dob']
         self.dobDateEdit.setDate(QDate(student_details['dob']))
 
-        genderComboBoxIndex = self.genderComboBox.find(student_details['gender'], Qt.MatchFixedString)
-        self.genderComboBox.setCurrentIndex(genderComboBoxIndex)
+        # genderComboBoxIndex = self.genderComboBox.find(student_details['gender'], Qt.MatchFixedString)
+        # self.genderComboBox.setCurrentIndex(genderComboBoxIndex)
 
-        categoryComboBoxIndex = self.categoryComboBox.find(student_details['category'], Qt.MatchFixedString)
-        self.categoryComboBox.setCurrentIndex(categoryComboBoxIndex)
+        # categoryComboBoxIndex = self.categoryComboBox.find(student_details['category'], Qt.MatchFixedString)
+        # self.categoryComboBox.setCurrentIndex(categoryComboBoxIndex)
 
         self.addressLine1TextEdit.setText(student_details['address_line_1'])
         self.addressLine2TextEdit.setText(student_details['address_line_2'])
-        self.cityLineEdit.setText(student_details['city'])
+        # self.cityLineEdit.setText(student_details['city'])
 
-        stateComboBoxIndex = self.stateComboBox.find(student_details['state'], Qt.MatchFixedString)
-        self.stateComboBox.setCurrentIndex(stateComboBoxIndex)
+        # stateComboBoxIndex = self.stateComboBox.find(student_details['state'], Qt.MatchFixedString)
+        # self.stateComboBox.setCurrentIndex(stateComboBoxIndex)
 
         self.pinLineEdit.setText(student_details['pincode'])
         self.resumeLineEdit.setText(student_details['resume_link'])
-        self.marks10LineEdit.setText(student_details['marks_10'])
-        self.marks12LineEdit.setText(student_details['marks_12'])
-        self.gradYearLineEdit.setText(student_details['grad_year'])
+        self.marks10LineEdit.setText(str(student_details['marks_10']))
+        self.marks12LineEdit.setText(str(student_details['marks_12']))
+        self.gradYearLineEdit.setText(str(student_details['grad_year']))
 
-        courseComboBoxIndex = self.courseComboBox.find(student_details['course'], Qt.MatchFixedString)
-        self.courseComboBox.setCurrentIndex(courseComboBoxIndex)
+        # courseComboBoxIndex = self.courseComboBox.find(student_details['course'], Qt.MatchFixedString)
+        # self.courseComboBox.setCurrentIndex(courseComboBoxIndex)
 
-        branchComboBoxIndex = self.branchComboBox.find(student_details['branch'], Qt.MatchFixedString)
-        self.branchComboBox.setCurrentIndex(branchComboBoxIndex)
+        # branchComboBoxIndex = self.branchComboBox.find(student_details['branch'], Qt.MatchFixedString)
+        # self.branchComboBox.setCurrentIndex(branchComboBoxIndex)
 
-        self.sem1LineEdit.setText(student_details['gpa_1'])
-        self.sem2LineEdit.setText(student_details['gpa_2'])
-        self.sem3LineEdit.setText(student_details['gpa_3'])
-        self.sem4LineEdit.setText(student_details['gpa_4'])
-        self.sem5LineEdit.setText(student_details['gpa_5'])
-        self.sem6LineEdit.setText(student_details['gpa_6'])
-        self.sem7LineEdit.setText(student_details['gpa_7'])
-        self.backlogsLineEdit.setText(student_details['no_of_backlogs'])
+        self.sem1LineEdit.setText(str(student_details['gpa_1']))
+        self.sem2LineEdit.setText(str(student_details['gpa_2']))
+        self.sem3LineEdit.setText(str(student_details['gpa_3']))
+        self.sem4LineEdit.setText(str(student_details['gpa_4']))
+        self.sem5LineEdit.setText(str(student_details['gpa_5']))
+        self.sem6LineEdit.setText(str(student_details['gpa_6']))
+        self.sem7LineEdit.setText(str(student_details['gpa_7']))
+        self.backlogsLineEdit.setText(str(student_details['no_of_backlogs']))
 
     def updateProfileInfo(self):
         self.updateInfoPushButton.setEnabled(False)
@@ -411,21 +438,27 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
 
     def switchToJobOpeningsTab(self):
         self.mainTabWidget.setCurrentIndex(0)
+        self.populateJobOpeningsTable()
 
     def switchToApplicationsTab(self):
         self.mainTabWidget.setCurrentIndex(1)
+        self.populateApplicationsTable()
 
     def switchToProfileTab(self):
         self.mainTabWidget.setCurrentIndex(2)
+        self.populateProfileTab()
 
     def switchToAccountTab(self):
         self.mainTabWidget.setCurrentIndex(3)
 
     def signOut(self):
+        student.del_identifiers()
         stacked_window.setCurrentIndex(2)
 
 
 if __name__ == '__main__':
+    db = DBHelper(username, password, host, database, debug_mode=True)
+
     app = QApplication(sys.argv)
     stacked_window = QStackedWidget()
 
@@ -447,10 +480,6 @@ if __name__ == '__main__':
     qt_rectangle.moveCenter(center_point)
     stacked_window.move(qt_rectangle.topLeft())
     stacked_window.show()
-
-    # sleep(3)
-
-    db = DBHelper(username, password, host, database, debug_mode=True)
 
     intern_placement_window.afterDBConnection()
 

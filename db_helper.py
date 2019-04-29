@@ -160,9 +160,10 @@ class DBHelper(object):
         )
         result = self.connection.execute(command)
         row = result.fetchone()
+        print(row)
 
         if row:
-            if row[-1] == password:
+            if row[-2] == password:
                 return DBHelper.LOGIN_SUCCESSFUL
             else:
                 print('Incorrect Password')
@@ -210,7 +211,7 @@ class DBHelper(object):
         command = self.students.select(
             whereclause=self.students.c.roll_no == roll_no
         )
-        result = self.connection.execute(command).fetchone()[1:]
+        result = self.connection.execute(command).fetchone()
         columns = [column.key for column in self.students.columns]
 
         return dict(zip(columns, result))
@@ -549,6 +550,8 @@ class DBHelper(object):
         )
         job_ids = self.connection.execute(get_job_id_command).fetchall()[:][-1]
 
+        print(job_ids)
+
         company_tins = []
         for job_id in job_ids:
             get_company_id_command = select([self.jobs.c.company_tin]).where(
@@ -600,32 +603,45 @@ class DBHelper(object):
             self.students.c.roll_no == roll_no
         )
         student_branch = self.connection.execute(get_branch_command).fetchone()[-1]
+        print()
+        print(student_branch)
+        print()
 
         get_job_ids_command = select([self.branches_eligible.c.job_id]).where(
             self.branches_eligible.c.branch == student_branch
         )
-        job_ids = self.connection.execute(get_job_ids_command).fetchall()[:][1:]
+        print(get_job_ids_command)
+        job_ids = self.connection.execute(get_job_ids_command).fetchall()[0]
 
         deadlines = []
         company_tins = []
+        print()
+        print(job_ids)
+        print()
         for job_id in job_ids:
             get_deadline_command = select([self.jobs.c.deadline, self.jobs.c.company_tin]).where(
                 self.jobs.c.job_id == job_id
             )
-            result = self.connection.execute(get_deadline_command).fetchone()[1:]
+            result = self.connection.execute(get_deadline_command).fetchone()
+            print()
+            print(result)
+            print()
             deadlines.append(result[0])
             company_tins.append(result[1])
 
         names = []
         dovs = []
         for company_tin in company_tins:
-            get_company_details_command = select([self.companies.name, self.companies.dov]).where(
-                self.companies.c.company_tin == company_tin
+            get_company_details_command = select([self.jobs.c.job_title, self.jobs.c.dov]).where(
+                self.jobs.c.company_tin == company_tin
             )
-            result = self.connection.execute(get_company_details_command).fetchone()[1:]
+            result = self.connection.execute(get_company_details_command).fetchone()
             names.append(result[0])
             dovs.append(result[1])
 
+        print(names)
+        print(deadlines)
+        print(dovs)
         return [names, deadlines, dovs]
 
     def fetch_jobs_company(self, company_tin, for_intern):
@@ -736,6 +752,6 @@ if __name__ == '__main__':
     host = 'ec2-184-73-216-48.compute-1.amazonaws.com'
     database = 'dffdu4arjfs5ta'
 
-    db = DBHelper(username, password, host, database, debug_mode=True)
+    db = DBHelper(username, password, host, database, debug_mode=False)
     # db.create_tables()
     # db.populate_tables()

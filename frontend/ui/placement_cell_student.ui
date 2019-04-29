@@ -189,7 +189,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
@@ -405,17 +405,17 @@
          </property>
          <item>
           <property name="text">
-           <string>Female</string>
+           <string>FEMALE</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>Male</string>
+           <string>MALE</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>Other</string>
+           <string>OTHER</string>
           </property>
          </item>
         </widget>
