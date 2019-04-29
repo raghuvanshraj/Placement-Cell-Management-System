@@ -5,6 +5,7 @@ from sqlalchemy import Table, Column, Integer, BigInteger, String, Boolean, Floa
     Date, Time, DateTime, MetaData, ForeignKey
 from sqlalchemy import and_
 from sqlalchemy.sql import select
+import math
 
 
 class DBHelper(object):
@@ -384,6 +385,9 @@ class DBHelper(object):
 
         print(type(job_np[0, 6]), type(job_np[0, 7]))
         for row in job_np:
+            row[6] = int(row[6]) if not math.isnan(row[6]) else None
+            row[7] = int(row[7]) if not math.isnan(row[7]) else None
+            row[8] = int(row[8]) if not math.isnan(row[8]) else None
             command = self.jobs.insert().values(job_title=row[0], description=row[1],
                                                 cutoff=row[2], deadline=row[3], dov=row[4],
                                                 process_ongoing=row[5],
@@ -523,20 +527,21 @@ class DBHelper(object):
             self.connection.execute(command)
 
     def populate_tables(self):
-        # self.populate_geolocation_table('pincodes_delhi_haryana.csv')
+        self.populate_geolocation_table('pincodes_delhi_haryana.csv')
 
-        # self.populate_students_table('students.csv')
-        # self.populate_companies_table('companies.csv')
-        # self.populate_trainings_table('trainings.csv')
+        self.populate_students_table('students.csv')
+        self.populate_companies_table('companies.csv')
+        self.populate_trainings_table('trainings.csv')
 
-        # self.populate_branch_course_table('branch_course.csv')
-        self.populate_jobs_table('jobs.csv')
-        self.populate_branches_eligible_table('branches_eligible.csv')
+        self.populate_branch_course_table('branch_course.csv')
         self.populate_login_credentials_company_table('login_credentials_company.csv')
         self.populate_login_credentials_student_table('login_credentials_student.csv')
-        self.populate_student_applies_for_job_table('student_applies_for_job.csv')
         self.populate_student_applies_for_training_table('student_applies_for_training.csv')
         self.populate_student_manages_company_table('student_manages_company.csv')
+
+        self.populate_jobs_table('jobs.csv')
+        self.populate_branches_eligible_table('branches_eligible.csv')
+        self.populate_student_applies_for_job_table('student_applies_for_job.csv')
 
     def fetch_applications_student(self, roll_no):
         get_job_id_command = select([self.student_applies_for_job.c.job_id]).where(
@@ -733,4 +738,4 @@ if __name__ == '__main__':
 
     db = DBHelper(username, password, host, database, debug_mode=True)
     # db.create_tables()
-    db.populate_tables()
+    # db.populate_tables()
