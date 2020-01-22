@@ -111,6 +111,8 @@ class Login(QMainWindow, login_ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.studentUsernameLineEdit.setText('2k16/co/01')
+        self.studentPasswordLineEdit.setText('password')
         self.loginDetailsTabWidget.tabBar().setVisible(False)
         self.forgotPasswordFrame.hide()
         self.forgotPasswordCommandLinkButtonStudent.clicked.connect(self.forgotPasswordCommandLinkButtonListener)
@@ -348,6 +350,9 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
             self.applicationsTableWidget.insertRow(0)
 
     def populateProfileTab(self):
+
+        # resolve pincode based issues
+
         student_details = db.fetch_student_details(student.username)
         print()
         print(student_details)
@@ -356,20 +361,19 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
         self.lastNameLineEdit.setText(student_details['l_name'])
         self.emailLineEdit.setText(student_details['email_id'])
         self.phoneLineEdit.setText(student_details['contact_no'])
-        # dob = student_details['dob']
         self.dobDateEdit.setDate(QDate(student_details['dob']))
 
-        # genderComboBoxIndex = self.genderComboBox.find(student_details['gender'], Qt.MatchFixedString)
-        # self.genderComboBox.setCurrentIndex(genderComboBoxIndex)
+        genderComboBoxIndex = self.genderComboBox.findText(student_details['gender'], Qt.MatchFixedString)
+        self.genderComboBox.setCurrentIndex(genderComboBoxIndex)
 
-        # categoryComboBoxIndex = self.categoryComboBox.find(student_details['category'], Qt.MatchFixedString)
-        # self.categoryComboBox.setCurrentIndex(categoryComboBoxIndex)
+        categoryComboBoxIndex = self.categoryComboBox.findText(student_details['category'], Qt.MatchFixedString)
+        self.categoryComboBox.setCurrentIndex(categoryComboBoxIndex)
 
         self.addressLine1TextEdit.setText(student_details['address_line_1'])
         self.addressLine2TextEdit.setText(student_details['address_line_2'])
         # self.cityLineEdit.setText(student_details['city'])
 
-        # stateComboBoxIndex = self.stateComboBox.find(student_details['state'], Qt.MatchFixedString)
+        # stateComboBoxIndex = self.stateComboBox.findText(student_details['state'], Qt.MatchFixedString)
         # self.stateComboBox.setCurrentIndex(stateComboBoxIndex)
 
         self.pinLineEdit.setText(student_details['pincode'])
@@ -378,11 +382,11 @@ class PlacementCellStudent(QMainWindow, placement_cell_student_ui):
         self.marks12LineEdit.setText(str(student_details['marks_12']))
         self.gradYearLineEdit.setText(str(student_details['grad_year']))
 
-        # courseComboBoxIndex = self.courseComboBox.find(student_details['course'], Qt.MatchFixedString)
-        # self.courseComboBox.setCurrentIndex(courseComboBoxIndex)
+        courseComboBoxIndex = self.courseComboBox.findText(student_details['course'], Qt.MatchFixedString)
+        self.courseComboBox.setCurrentIndex(courseComboBoxIndex)
 
-        # branchComboBoxIndex = self.branchComboBox.find(student_details['branch'], Qt.MatchFixedString)
-        # self.branchComboBox.setCurrentIndex(branchComboBoxIndex)
+        branchComboBoxIndex = self.branchComboBox.findText(student_details['branch'], Qt.MatchFixedString)
+        self.branchComboBox.setCurrentIndex(branchComboBoxIndex)
 
         self.sem1LineEdit.setText(str(student_details['gpa_1']))
         self.sem2LineEdit.setText(str(student_details['gpa_2']))
